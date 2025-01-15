@@ -1,7 +1,9 @@
+import Navbar from "../../components/Navbar/Navbar";
+
 const MainLayout = () => {
   return (
     <div className="font-roboto">
-      <h2 className="text-5xl">Hello from quickgig</h2>
+      <Navbar></Navbar>
     </div>
   );
 };
