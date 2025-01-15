@@ -1,36 +1,61 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import useAuth from "../../hooks/useAuth/useAuth";
 const Navbar = () => {
+  const { user, handleLogout } = useAuth();
+
   return (
     <div className="navbar bg-base-100 my-4 w-11/12 mx-auto">
       <div className="navbar-start">
-        <a className="btn btn-ghost text-xl md:text-3xl lg:text-4xl ">
+        <Link className="animate__animated animate__rubberBand Left text-2xl md:text-3xl font-bold">
           QuickGig
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-6 font-semibold md:text-xl">
-          <NavLink>Dashboard</NavLink>
-          <NavLink>Available Coin</NavLink>
+          {user ? (
+            <>
+              <NavLink>Dashboard</NavLink>
+              <NavLink>Available Coin</NavLink>
+              <NavLink>User Profile</NavLink>
+            </>
+          ) : (
+            ""
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-        <NavLink>
-          <button className="py-1 px-2 md:py-2 md:px-4 text-green-800 hover:text-white font-bold hover:bg-green-700 rounded">
-            Login
-          </button>
-        </NavLink>
-        <NavLink>
-          <button className="py-1 px-2 md:py-2 md:px-4 hover:bg-red-900 hover:text-white rounded">
-            Register
-          </button>
-        </NavLink>
-        <NavLink>User Profile</NavLink>
+        {user ? (
+          <>
+            <button
+              className="py-2 px-4 ml-2 hover:bg-green-900 hover:text-white rounded font-semibold md:text-xl"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <NavLink to="/login">
+              <button className="py-1 px-2 md:py-2 md:px-4 hover:text-white hover:bg-green-700 rounded font-semibold md:text-xl">
+                Login
+              </button>
+            </NavLink>
+            <NavLink to="/register">
+              <button className="py-1 px-2 md:py-2 md:px-4 hover:bg-red-900 hover:text-white rounded font-semibold md:text-xl">
+                Register
+              </button>
+            </NavLink>
+          </>
+        )}
+
         <button
           onClick={() =>
             (window.location.href =
               "https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-AnkonChy.git")
           }
-          className="py-1 px-2 md:py-2 md:px-4 hover:bg-red-900 hover:text-white rounded text-sm"
+          className="py-1 px-2 md:py-2 md:px-4 hover:bg-red-900 hover:text-white rounded font-semibold md:text-xl"
         >
           Join as Developer
         </button>
@@ -56,10 +81,10 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>Item 1</a>
+              <a>Dashboard</a>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>Avaiable Coin</a>
             </li>
           </ul>
         </div>
