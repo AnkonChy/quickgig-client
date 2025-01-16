@@ -1,4 +1,3 @@
-
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
@@ -8,15 +7,18 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 my-3 w-11/12 mx-auto">
       <div className="navbar-start">
-        <Link className="animate__animated animate__rubberBand Left text-2xl md:text-3xl font-bold">
+        <NavLink
+          to="/"
+          className="animate__animated animate__rubberBand Left text-2xl md:text-3xl font-bold"
+        >
           QuickGig
-        </Link>
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-6 font-semibold md:text-xl">
           {user ? (
             <>
-              <NavLink>Dashboard</NavLink>
+              <NavLink to="/dashboard/allUsers">Dashboard</NavLink>
               <NavLink>Available Coin</NavLink>
               <NavLink>User Profile</NavLink>
             </>
@@ -78,14 +80,10 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow right-0"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow right-0 z-10"
           >
-            <li>
-              <a>Dashboard</a>
-            </li>
-            <li>
-              <a>Avaiable Coin</a>
-            </li>
+            <NavLink to="/dashboard/allUsers">Dashboard</NavLink>
+            <li>Avaiable Coin</li>
             <button
               onClick={() =>
                 (window.location.href =

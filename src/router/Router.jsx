@@ -4,6 +4,10 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home";
 
+import AllUsers from "../pages/Dashboard/AllUsers";
+import Dashboard from "../layouts/Dashboard/Dashboard";
+import AddTasks from "../pages/Dashboard/AddTasks";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +32,16 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "addTask",
+        element: <AddTasks></AddTasks>,
       },
     ],
   },
