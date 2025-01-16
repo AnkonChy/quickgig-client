@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "../../components/Carousel/Carousel";
 import BestWorkers from "../../components/BestWorkers/BestWorkers";
 import { useLoaderData } from "react-router-dom";
+import Testimonial from "../../components/Testimonial/Testimonial";
 
 const Home = () => {
   const { sortWorkerData } = useLoaderData();
@@ -14,6 +15,14 @@ const Home = () => {
         </h1>
         <div>
           <BestWorkers sortWorkerData={sortWorkerData}></BestWorkers>
+        </div>
+      </div>
+      <div className="mt-20 w-11/12 mx-auto">
+        <h1 className=" animate__animated animate__fadeInLeft text-3xl md:text-4xl lg:text-5xl font-bold my-4">
+          Best Workers
+        </h1>
+        <div>
+          <Testimonial></Testimonial>
         </div>
       </div>
     </div>
