@@ -12,6 +12,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+        loader: async () => {
+          const sortWorkerRes = await fetch(
+            "http://localhost:4000/sortWorkers"
+          );
+          const sortWorkerData = await sortWorkerRes.json();
+
+          return { sortWorkerData };
+        },
       },
       {
         path: "/login",

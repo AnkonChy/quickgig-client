@@ -33,7 +33,13 @@ const Register = () => {
     const password = form.password.value;
     const conPass = form.conPass.value;
     const role = form.role.value;
-    console.log(role);
+    let coin = 0;
+
+    if (role === "buyer") {
+      coin = 50;
+    } else if (role === "worker") {
+      coin = 10;
+    }
 
     if (password.length < 6) {
       toast.warn("Password must be 6 characters");
@@ -63,6 +69,7 @@ const Register = () => {
           email: email,
           profile_picture: photo_url,
           role: role,
+          coin: coin,
         };
         axiosPublic.post("/users", userInfo).then((res) => {
           if (res.data.insertedId) {
@@ -78,7 +85,9 @@ const Register = () => {
         // setUser(res.user)
         navigate(res.user && "/");
       })
-      .catch((err) => {});
+      .catch((err) => {
+        toast.warn(err.code);
+      });
   };
 
   return (
@@ -179,13 +188,14 @@ const Register = () => {
                   className="input input-bordered h-10 text-sm"
                   name="role"
                   id="role"
+                  defaultValue=""
                   required
                 >
-                  <option disabled selected>
+                  <option value="" disabled>
                     Select role
                   </option>
-                  <option defaultValue="comedy">Worker</option>
-                  <option defaultValue="drama">Buyer</option>
+                  <option value="worker">Worker</option>
+                  <option value="buyer">Buyer</option>
                 </select>
               </div>
               <div className="form-control my-3">
@@ -194,7 +204,7 @@ const Register = () => {
                 </button>
               </div>
             </form>
-            <div className="divider  divider-warning mt-0 text-[#D0CFD1]">
+            {/* <div className="divider  divider-warning mt-0 text-[#D0CFD1]">
               OR register with
             </div>
             <button
@@ -203,7 +213,7 @@ const Register = () => {
             >
               <FcGoogle className="" />
               Google
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
