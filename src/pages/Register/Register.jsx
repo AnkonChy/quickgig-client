@@ -1,13 +1,18 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { toast, ToastContainer } from "react-toastify";
 
 const Register = () => {
+  const axiosPublic = useAxiosPublic();
   const { handleRegister, signInWithGoogle, manageProfile, setUser } =
     useContext(AuthContext);
   const navigate = useNavigate();
+
   const handleGoogleLoginbtn = () => {
     try {
       signInWithGoogle().then((res) => {
@@ -20,12 +25,15 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
     //   get value from input
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const photo_url = e.target.photo_url.value;
-    const password = e.target.password.value;
-    const conPass = e.target.conPass.value;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo_url = form.photo_url.value;
+    const password = form.password.value;
+    const conPass = form.conPass.value;
+    const role = form.role.value;
+    console.log(role);
 
     if (password.length < 6) {
       toast.warn("Password must be 6 characters");
@@ -43,17 +51,36 @@ const Register = () => {
       toast.warn("Password must be at least one uppercase letter");
       return;
     }
+
     handleRegister(email, password)
       .then((res) => {
         manageProfile(name, photo_url);
         setUser({ displayName: name, photoURL: photo_url, email: email });
+
+        //create user entry in the database
+        const userInfo = {
+          name: name,
+          email: email,
+          profile_picture: photo_url,
+          role: role,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User created successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
         // setUser(res.user)
         navigate(res.user && "/");
       })
-      .catch((err) => {
-        toast.warn(err.code);
-      });
+      .catch((err) => {});
   };
+
   return (
     <>
       <Helmet>
@@ -140,6 +167,26 @@ const Register = () => {
                   className="input input-bordered h-10 text-sm"
                   required
                 />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-white font-bold">
+                    Select Your Role
+                  </span>
+                </label>
+                <select
+                  type="text"
+                  className="input input-bordered h-10 text-sm"
+                  name="role"
+                  id="role"
+                  required
+                >
+                  <option disabled selected>
+                    Select role
+                  </option>
+                  <option defaultValue="comedy">Worker</option>
+                  <option defaultValue="drama">Buyer</option>
+                </select>
               </div>
               <div className="form-control my-3">
                 <button className="btn bg-[#6E54B5] border-none text-white hover:bg-purple-950">

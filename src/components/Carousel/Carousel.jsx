@@ -39,7 +39,7 @@ const Carousel = () => {
 
           .autoplay-progress circle {
             fill: none;
-            stroke: white; /* Green color for the progress */
+            stroke: yellow; /* Green color for the progress */
             stroke-width: 4;
             stroke-dasharray: 126; /* Approx. circumference of the circle (2 * π * radius) */
             stroke-dashoffset: calc(var(--progress, 1) * 126);
@@ -84,7 +84,7 @@ const Carousel = () => {
         <SwiperSlide>
           <Slide
             image={
-              "https://i.ibb.co.com/qCTSzGx/nick-morrison-FHnnjk1-Yj7-Y-unsplash.jpg"
+              "https://i.ibb.co.com/0XT6scB/mohammad-rahmani-Lrx-Sl4-Zxo-Rs-unsplash.jpg"
             }
             heading="Turn Time into Earnings"
             text="Unlock Your Potential with Flexible Tasks That Fit Your Schedule!"
@@ -93,7 +93,7 @@ const Carousel = () => {
         <SwiperSlide>
           <Slide
             image={
-              "https://i.ibb.co.com/qCTSzGx/nick-morrison-FHnnjk1-Yj7-Y-unsplash.jpg"
+              "https://i.ibb.co.com/bQwJC7B/thought-catalog-505eect-W54k-unsplash.jpg"
             }
             heading="Earn Anytime, Anywhere"
             text="Join a Global Community of Taskers and Start Earning Today!"
