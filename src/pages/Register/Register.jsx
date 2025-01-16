@@ -13,16 +13,6 @@ const Register = () => {
     useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleGoogleLoginbtn = () => {
-    try {
-      signInWithGoogle().then((res) => {
-        navigate("/");
-      });
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;

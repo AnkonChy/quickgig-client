@@ -4,8 +4,9 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 const Login = () => {
-  const { handleLogin, signInWithGoogle } = useContext(AuthContext);
+  const { handleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const {
@@ -13,16 +14,6 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const handleGoogleLoginbtn = () => {
-    try {
-      signInWithGoogle().then((res) => {
-        navigate(location?.state ? location.state : "/");
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const onSubmit = (data) => {
     const { email, password } = data;
@@ -107,13 +98,7 @@ const Login = () => {
             <div className="divider divider-warning mt-0 text-[#D0CFD1]">
               OR register with
             </div>
-            <button
-              onClick={handleGoogleLoginbtn}
-              className="text-lg btn w-3/4 mx-auto bg-[#2B2738] text-[#D0CFD1] hover:text-black"
-            >
-              <FcGoogle />
-              Google
-            </button>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

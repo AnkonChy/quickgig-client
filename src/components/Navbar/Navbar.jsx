@@ -44,7 +44,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink to="/register">
               <button className="py-1 px-2 md:py-1 md:px-4 ml-2 border-2 border-red-800 hover:bg-red-800 hover:text-white rounded font-semibold md:text-xl">
-                Register
+                Sign Up
               </button>
             </NavLink>
           </>
