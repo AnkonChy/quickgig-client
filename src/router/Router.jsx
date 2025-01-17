@@ -7,6 +7,7 @@ import Home from "../pages/Home/Home";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import AddTasks from "../pages/Dashboard/AddTasks";
+import MyTasks from "../pages/Dashboard/MyTasks";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "addTask",
         element: <AddTasks></AddTasks>,
+      },
+      {
+        path: "allTasks",
+        element: <MyTasks></MyTasks>,
       },
     ],
   },

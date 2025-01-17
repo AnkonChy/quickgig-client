@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import { FaUtensils } from "react-icons/fa";
+import { FaTasks } from "react-icons/fa";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 const AddTasks = () => {
+  const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const axiosSecure = useAxiosSecure();
 
@@ -16,9 +19,20 @@ const AddTasks = () => {
       data: data.date,
       sub_info: data.sub_info,
       task_img_url: data.task_img_url,
+      task_owner: user.email,
     };
-    const taskResponse = axiosSecure.post("/addTask", taskItem);
-    console.log(taskResponse.data);
+    const taskResponse = await axiosSecure.post("/addTask", taskItem);
+    // console.log(taskResponse.data.insertedId);
+    if (taskResponse.data.insertedId) {
+      reset();
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `${data.title} is added to the tasklist`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   };
   return (
     <div className="mb-6">
@@ -121,7 +135,7 @@ const AddTasks = () => {
           </label>
 
           <button className="btn my-4">
-            Add Item <FaUtensils className="ml-2"></FaUtensils>
+            Add Task <FaTasks className="ml-2" />
           </button>
         </form>
       </div>

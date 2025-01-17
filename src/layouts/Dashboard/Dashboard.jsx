@@ -29,7 +29,9 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li className="my-1">
-            <NavLink className="text-center">My Task's</NavLink>
+            <NavLink to="/dashboard/allTasks" className="text-center">
+              My Task's
+            </NavLink>
           </li>
           <li className="my-1">
             <NavLink className="text-center">Purchase Coin</NavLink>

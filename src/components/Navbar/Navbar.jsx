@@ -18,7 +18,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 gap-6 font-semibold md:text-xl">
           {user ? (
             <>
-              <NavLink to="/dashboard/allUsers">Dashboard</NavLink>
+              <NavLink to="/dashboard">Dashboard</NavLink>
               <NavLink>Available Coin</NavLink>
               <NavLink>User Profile</NavLink>
             </>
