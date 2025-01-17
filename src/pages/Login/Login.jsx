@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { toast } from "react-toastify";
 const Login = () => {
   const { handleLogin } = useContext(AuthContext);
   const navigate = useNavigate();

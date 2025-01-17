@@ -39,9 +39,8 @@ const TaskDetails = () => {
       status: "pending",
     };
     const submitResponse = await axiosSecure.post("/addSubmit", taskItem);
-
-    console.log(submitResponse.data.insertedId);
-    if (submitResponse.data.modifiedCount) {
+ 
+    if (submitResponse.data.insertedId) {
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -67,7 +66,7 @@ const TaskDetails = () => {
                 alt=""
               />
             </div>
-            <div className=" p-10 space-y-4">
+            <div className="space-y-4">
               <h1 className="text-4xl font-bold">{title}</h1>
               <p className="font-medium">
                 <span className="text-lg">Required Worker: </span>
@@ -89,11 +88,11 @@ const TaskDetails = () => {
                 </div>
               </div>
               <div className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
+                <div className="">
                   <h3 className="font-medium text-lg">Task Detail:</h3>
                   <p>{detail}</p>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="">
                   <h3 className="font-medium text-lg">Submission Info: </h3>
                   <p>{sub_info}</p>
                 </div>

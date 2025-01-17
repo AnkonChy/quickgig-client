@@ -10,6 +10,7 @@ import UpdateTask from "../pages/Dashboard/UpdateTask";
 import TaskList from "../pages/Dashboard/TaskList";
 import WorkerHome from "../pages/Dashboard/WorkerHome";
 import TaskDetails from "../pages/Dashboard/TaskDetails";
+import MySubmission from "../pages/Dashboard/MySubmission";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
         element: <TaskDetails></TaskDetails>,
         loader: ({ params }) =>
           fetch(`http://localhost:4000/task/${params.id}`),
+      },
+      {
+        path: "allSubmission",
+        element: <MySubmission></MySubmission>,
       },
     ],
   },

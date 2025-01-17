@@ -33,7 +33,7 @@ const TaskList = () => {
         {allTasks.map((task) => (
           <div key={task._id} className="card bg-base-100 shadow-xl">
             <figure>
-              <img src={task.task_img_url} />
+              <img className="h-60 object-cover" src={task.task_img_url} />
             </figure>
             <div className="card-body">
               <h2 className="card-title">
@@ -51,11 +51,13 @@ const TaskList = () => {
                 </div>
               </div>
             </div>
-            <Link to={`/dashboard/taskDetails/${task._id}`}>
-              <button className="btn btn-success w-2/5 mx-auto mb-2 text-white">
-                View Details
-              </button>
-            </Link>
+            <div className="mx-auto">
+              <Link to={`/dashboard/taskDetails/${task._id}`}>
+                <button className="btn btn-success mb-2 text-white">
+                  View Details
+                </button>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
