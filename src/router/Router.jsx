@@ -3,12 +3,12 @@ import MainLayout from "../layouts/MainLayout/MainLayout";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home";
-
-import AllUsers from "../pages/Dashboard/AllUsers";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import AddTasks from "../pages/Dashboard/AddTasks";
 import MyTasks from "../pages/Dashboard/MyTasks";
 import UpdateTask from "../pages/Dashboard/UpdateTask";
+import TaskList from "../pages/Dashboard/TaskList";
+import WorkerHome from "../pages/Dashboard/WorkerHome";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +42,14 @@ const router = createBrowserRouter([
     element: <Dashboard></Dashboard>,
     children: [
       {
+        index: true,
+        element: <WorkerHome></WorkerHome>,
+      },
+      {
+        path: "workerHome",
+        element: <TaskList></TaskList>,
+      },
+      {
         path: "addTask",
         element: <AddTasks></AddTasks>,
       },
@@ -54,6 +62,10 @@ const router = createBrowserRouter([
         element: <UpdateTask></UpdateTask>,
         loader: ({ params }) =>
           fetch(`http://localhost:4000/task/${params.id}`),
+      },
+      {
+        path: "taskList",
+        element: <TaskList></TaskList>
       },
     ],
   },

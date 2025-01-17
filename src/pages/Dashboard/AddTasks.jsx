@@ -10,7 +10,6 @@ const AddTasks = () => {
   const axiosSecure = useAxiosSecure();
 
   const onSubmit = async (data) => {
-    console.log(data);
     const taskItem = {
       title: data.title,
       detail: data.detail,
@@ -19,7 +18,8 @@ const AddTasks = () => {
       completion_date: data.completion_date,
       sub_info: data.sub_info,
       task_img_url: data.task_img_url,
-      task_owner: user.email,
+      owner_email: user?.email,
+      buyer_name: user?.displayName,
     };
     const taskResponse = await axiosSecure.post("/addTask", taskItem);
     // console.log(taskResponse.data.insertedId);

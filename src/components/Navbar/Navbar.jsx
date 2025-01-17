@@ -82,7 +82,7 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow right-0 z-10"
           >
-            <NavLink to="/dashboard/allUsers">Dashboard</NavLink>
+            <NavLink to="/dashboard">Dashboard</NavLink>
             <li>Avaiable Coin</li>
             <button
               onClick={() =>

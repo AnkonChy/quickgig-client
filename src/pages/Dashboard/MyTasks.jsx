@@ -7,17 +7,23 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const MyTasks = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: tasks = [], refetch } = useQuery({
+  const {
+    data: tasks = [],
+    isPending,
+    refetch,
+  } = useQuery({
     queryKey: ["tasks"],
+    // enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure.get(`/tasks/owner?email=${user?.email}`);
       return res.data;
     },
   });
-
+  // console.log(isPending);
+  // console.log("loading", loading);
   const handleDeleteTask = (task) => {
     Swal.fire({
       title: "Are you sure?",
