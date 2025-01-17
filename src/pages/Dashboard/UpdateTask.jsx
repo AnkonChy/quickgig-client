@@ -18,7 +18,8 @@ const UpdateTask = () => {
     completion_date,
     sub_info,
     task_img_url,
-    task_owner,
+    buyer_email,
+    buyer_name,
   } = useLoaderData();
 
   const { register, handleSubmit, reset } = useForm();

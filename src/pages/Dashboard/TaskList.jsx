@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { FaDollarSign, FaUser } from "react-icons/fa";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import { Link } from "react-router-dom";
 
 const TaskList = () => {
   const { user, loading } = useAuth();
@@ -32,7 +33,7 @@ const TaskList = () => {
         {allTasks.map((task) => (
           <div key={task._id} className="card bg-base-100 shadow-xl">
             <figure>
-              <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" />
+              <img src={task.task_img_url} />
             </figure>
             <div className="card-body">
               <h2 className="card-title">
@@ -50,6 +51,11 @@ const TaskList = () => {
                 </div>
               </div>
             </div>
+            <Link to={`/dashboard/taskDetails/${task._id}`}>
+              <button className="btn btn-success w-2/5 mx-auto mb-2 text-white">
+                View Details
+              </button>
+            </Link>
           </div>
         ))}
       </div>

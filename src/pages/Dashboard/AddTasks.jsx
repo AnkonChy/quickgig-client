@@ -18,7 +18,7 @@ const AddTasks = () => {
       completion_date: data.completion_date,
       sub_info: data.sub_info,
       task_img_url: data.task_img_url,
-      owner_email: user?.email,
+      buyer_email: user?.email,
       buyer_name: user?.displayName,
     };
     const taskResponse = await axiosSecure.post("/addTask", taskItem);

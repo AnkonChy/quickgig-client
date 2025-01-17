@@ -9,6 +9,7 @@ import MyTasks from "../pages/Dashboard/MyTasks";
 import UpdateTask from "../pages/Dashboard/UpdateTask";
 import TaskList from "../pages/Dashboard/TaskList";
 import WorkerHome from "../pages/Dashboard/WorkerHome";
+import TaskDetails from "../pages/Dashboard/TaskDetails";
 
 const router = createBrowserRouter([
   {
@@ -65,7 +66,13 @@ const router = createBrowserRouter([
       },
       {
         path: "taskList",
-        element: <TaskList></TaskList>
+        element: <TaskList></TaskList>,
+      },
+      {
+        path: "taskDetails/:id",
+        element: <TaskDetails></TaskDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/task/${params.id}`),
       },
     ],
   },
