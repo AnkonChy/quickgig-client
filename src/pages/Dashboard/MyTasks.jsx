@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const MyTasks = () => {
-  const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+
   const { data: tasks = [], refetch } = useQuery({
     queryKey: ["tasks"],
     queryFn: async () => {
@@ -15,6 +17,34 @@ const MyTasks = () => {
       return res.data;
     },
   });
+
+  const handleDeleteTask = (task) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await axiosSecure.delete(`/task/${task._id}`);
+        // console.log(res.data);
+        if (res.data.deletedCount > 0) {
+          //refetch to update the ui
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${item.name} has been deleted`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      }
+    });
+  };
   return (
     <div>
       <div className="flex justify-evenly items-center my-4">
@@ -31,6 +61,7 @@ const MyTasks = () => {
               <th>Detail</th>
               <th>Required Workers</th>
               <th>Amount</th>
+              <th>Completion Date</th>
               <th>Submission Info</th>
               <th>Task Image URL</th>
               <th>Update</th>
@@ -38,19 +69,18 @@ const MyTasks = () => {
             </tr>
           </thead>
           <tbody>
-            {tasks.map((user, index) => (
-              <tr key={user._id}>
+            {tasks.map((task, index) => (
+              <tr key={task._id}>
                 <th>{index + 1}</th>
-                <td>{user.title}</td>
-                <td>{user.req_workers}</td>
-                <td>{user.detail}</td>
-                <td>{user.amount}</td>
-                <td>{user.sub_info}</td>
-                <td>{user.task_img_url}</td>
+                <td>{task.title}</td>
+                <td>{task.detail}</td>
+                <td>{task.req_workers}</td>
+                <td>{task.amount}</td>
+                <td>{task.completion_date}</td>
+                <td>{task.sub_info}</td>
+                <td>{task.task_img_url}</td>
                 <td>
-                  {/* <Link to={`/dashboard/updateItem/${item._id}`}> */}
-
-                  <Link>
+                  <Link to={`/dashboard/updateTask/${task._id}`}>
                     <button className="btn btn-ghost btn-lg bg-green-500">
                       <FaEdit className=" text-white" />
                     </button>
@@ -58,7 +88,7 @@ const MyTasks = () => {
                 </td>
                 <td>
                   <button
-                    // onClick={() => handleDeleteUser(user)}
+                    onClick={() => handleDeleteTask(task)}
                     className="btn btn-xs"
                   >
                     <FaTrashAlt className="text-red-600 text-lg" />

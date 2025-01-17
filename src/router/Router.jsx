@@ -8,6 +8,7 @@ import AllUsers from "../pages/Dashboard/AllUsers";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import AddTasks from "../pages/Dashboard/AddTasks";
 import MyTasks from "../pages/Dashboard/MyTasks";
+import UpdateTask from "../pages/Dashboard/UpdateTask";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,12 @@ const router = createBrowserRouter([
       {
         path: "allTasks",
         element: <MyTasks></MyTasks>,
+      },
+      {
+        path: "updateTask/:id",
+        element: <UpdateTask></UpdateTask>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/task/${params.id}`),
       },
     ],
   },
