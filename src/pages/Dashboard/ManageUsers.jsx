@@ -44,6 +44,25 @@ const ManageUsers = () => {
       }
     });
   };
+  const handleChangeRole = (e, user) => {
+    const newRole = e.target.value;
+    axiosSecure
+      .patch(`/users/makeRole/${user._id}`, {
+        role: newRole,
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is an ${newRole} now`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
   return (
     <div>
       <SectionTitle
@@ -61,16 +80,13 @@ const ManageUsers = () => {
             <thead>
               <tr>
                 <th>#</th>
-                <th>Title</th>
-                <th>Payable Amount</th>
-                <th>Submission Details</th>
-                <th>Amount</th>
-                <th>Buyer Name</th>
-                <th>Buyer Email</th>
-                <th>Current Date</th>
-                <th>Status</th>
-                <th>Update</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Profile Picture</th>
+                <th>Current role</th>
+                <th>Coin</th>
                 <th>Delete</th>
+                <th>Update Role</th>
               </tr>
             </thead>
             <tbody>
@@ -90,13 +106,27 @@ const ManageUsers = () => {
                       <FaTrashAlt className="text-red-600 text-lg" />
                     </button>
                   </td>
-                  {/* <td>
-                    <Link to={`/dashboard/updateTask/${task._id}`}>
-                      <button className="btn btn-ghost btn-lg bg-green-500">
-                        <FaEdit className=" text-white" />
-                      </button>
+                  <td>
+                    {/* <Link to={`/dashboard/updateTask/${task._id}`}> */}
+                    <Link>
+                      <select
+                        type="text"
+                        className="input input-bordered h-10 text-sm"
+                        name="role"
+                        id="role"
+                        defaultValue={user.role}
+                        onChange={(e) => handleChangeRole(e, user)}
+                        required
+                      >
+                        <option value="" disabled>
+                          Select role
+                        </option>
+                        <option value="admin">Admin</option>
+                        <option value="worker">Worker</option>
+                        <option value="buyer">Buyer</option>
+                      </select>
                     </Link>
-                  </td> */}
+                  </td>
                 </tr>
               ))}
             </tbody>
