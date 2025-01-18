@@ -38,12 +38,13 @@ const MyTasks = () => {
         const res = await axiosSecure.delete(`/task/${task._id}`);
         // console.log(res.data);
         if (res.data.deletedCount > 0) {
+          console.log(res.data);
           //refetch to update the ui
           refetch();
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: `${item.name} has been deleted`,
+            title: `${task.title} has been deleted and coin refund successfully`,
             showConfirmButton: false,
             timer: 1500,
           });
