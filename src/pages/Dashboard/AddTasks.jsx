@@ -22,8 +22,8 @@ const AddTasks = () => {
       buyer_name: user?.displayName,
     };
     const taskResponse = await axiosSecure.post("/addTask", taskItem);
-    // console.log(taskResponse.data.insertedId);
-    if (taskResponse.data.insertedId) {
+    console.log(taskResponse);
+    if (taskResponse.data.result) {
       reset();
       Swal.fire({
         position: "top-end",

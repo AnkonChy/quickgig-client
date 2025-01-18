@@ -12,11 +12,13 @@ import WorkerHome from "../pages/Dashboard/WorkerHome";
 import TaskDetails from "../pages/Dashboard/TaskDetails";
 import MySubmission from "../pages/Dashboard/MySubmission";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,

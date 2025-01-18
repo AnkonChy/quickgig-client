@@ -16,7 +16,7 @@ const MyTasks = () => {
     refetch,
   } = useQuery({
     queryKey: ["tasks"],
-    // enabled: !loading,
+    enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure.get(`/tasks/owner?email=${user?.email}`);
       return res.data;

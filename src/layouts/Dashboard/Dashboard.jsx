@@ -13,15 +13,23 @@ const Dashboard = () => {
           </NavLink>
         </h1>
         <ul className="menu text-white">
-          <li className="my-1">
-            <NavLink className="text-center">Admin Home</NavLink>
-          </li>
-          <li className="my-1">
-            <NavLink className="text-center">Buyer Home</NavLink>
-          </li>
-          <li className="my-1">
-            <NavLink className="text-center">Worker Home</NavLink>
-          </li>
+          {isAdmin ? (
+            <>
+              <li className="my-1">
+                <NavLink className="text-center">Admin Home</NavLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="my-1">
+                <NavLink className="text-center">Buyer Home</NavLink>
+              </li>
+              <li className="my-1">
+                <NavLink className="text-center">Worker Home</NavLink>
+              </li>
+            </>
+          )}
+
           <li className="my-1">
             <NavLink to="/dashboard/taskList" className="text-center">
               TaskList

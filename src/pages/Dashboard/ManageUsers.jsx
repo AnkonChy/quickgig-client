@@ -53,6 +53,7 @@ const ManageUsers = () => {
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount) {
+          refetch()
           Swal.fire({
             position: "top-end",
             icon: "success",
