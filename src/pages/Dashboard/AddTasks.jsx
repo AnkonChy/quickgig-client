@@ -4,9 +4,11 @@ import { FaTasks } from "react-icons/fa";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 const AddTasks = () => {
   const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
+  const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
 
   const onSubmit = async (data) => {
@@ -21,17 +23,27 @@ const AddTasks = () => {
       buyer_email: user?.email,
       buyer_name: user?.displayName,
     };
-    const taskResponse = await axiosSecure.post("/addTask", taskItem);
-    console.log(taskResponse);
-    if (taskResponse.data.result) {
-      reset();
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: `${data.title} is added to the tasklist`,
-        showConfirmButton: false,
-        timer: 1500,
-      });
+    try {
+      const taskResponse = await axiosSecure.post("/addTask", taskItem);
+      if (taskResponse.data.result) {
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${data.title} is added to the tasklist`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    } catch (error) {
+      if (error.response?.data?.error === "Not avaiable Coin. Purchase Coin") {
+        Swal.fire({
+          icon: "error",
+          title: "Insufficient Coins",
+          text: "You don't have enough coins to create this task.",
+        });
+        navigate("/");
+      }
     }
   };
   return (
