@@ -4,11 +4,12 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ManageUsers = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { data: users = [] } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
@@ -17,7 +18,31 @@ const ManageUsers = () => {
   });
 
   const handleDeleteTask = (user) => {
-    console.log(user._id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await axiosSecure.delete(`/users/${user._id}`);
+        // console.log(res.data);
+        if (res.data.deletedCount > 0) {
+          //refetch to update the ui
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${item.name} has been deleted`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      }
+    });
   };
   return (
     <div>
