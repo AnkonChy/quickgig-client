@@ -47,7 +47,9 @@ const Dashboard = () => {
             <NavLink className="text-center">Purchase Coin</NavLink>
           </li>
           <li className="my-1">
-            <NavLink className="text-center">Manage Users</NavLink>
+            <NavLink to="/dashboard/allUsers" className="text-center">
+              Manage Users
+            </NavLink>
           </li>
           <li className="my-1">
             <NavLink className="text-center">Manage Task</NavLink>

@@ -11,6 +11,7 @@ import TaskList from "../pages/Dashboard/TaskList";
 import WorkerHome from "../pages/Dashboard/WorkerHome";
 import TaskDetails from "../pages/Dashboard/TaskDetails";
 import MySubmission from "../pages/Dashboard/MySubmission";
+import ManageUsers from "../pages/Dashboard/ManageUsers";
 
 const router = createBrowserRouter([
   {
@@ -47,10 +48,12 @@ const router = createBrowserRouter([
         index: true,
         element: <WorkerHome></WorkerHome>,
       },
-      {
-        path: "workerHome",
-        element: <TaskList></TaskList>,
-      },
+      // {
+      //   path: "taskList",
+      //   element: <TaskList></TaskList>,
+      // },
+
+      //buyer
       {
         path: "addTask",
         element: <AddTasks></AddTasks>,
@@ -65,6 +68,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:4000/task/${params.id}`),
       },
+      //worker
       {
         path: "taskList",
         element: <TaskList></TaskList>,
@@ -78,6 +82,12 @@ const router = createBrowserRouter([
       {
         path: "allSubmission",
         element: <MySubmission></MySubmission>,
+      },
+
+      //admin
+      {
+        path: "allUsers",
+        element: <ManageUsers></ManageUsers>,
       },
     ],
   },
