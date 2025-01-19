@@ -1,7 +1,7 @@
 import React from "react";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import { MdCancel } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
