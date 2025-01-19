@@ -13,6 +13,7 @@ import TaskDetails from "../pages/Dashboard/TaskDetails";
 import MySubmission from "../pages/Dashboard/MySubmission";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import BuyerHome from "../pages/Dashboard/BuyerHome";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,10 @@ const router = createBrowserRouter([
             "http://localhost:4000/sortWorkers"
           );
           const sortWorkerData = await sortWorkerRes.json();
+          const allTaskRes = await fetch("http://localhost:4000/allTasks");
+          const allTasksData = await allTaskRes.json();
 
-          return { sortWorkerData };
+          return { sortWorkerData, allTasksData };
         },
       },
       {
@@ -48,7 +51,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <WorkerHome></WorkerHome>,
+        element: <BuyerHome></BuyerHome>
       },
       // {
       //   path: "taskList",

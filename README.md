@@ -51,7 +51,7 @@ QuickGig is a micro-task and earning platform where users can complete small tas
 - JWT for secure route protection
 - Postman for API testing
 
----
+<!-- ---
 
 ## 🌟 Screenshots
 
@@ -67,7 +67,7 @@ QuickGig is a micro-task and earning platform where users can complete small tas
 
 ![Buyer Dashboard](https://via.placeholder.com/800x400?text=Buyer+Dashboard)
 
----
+--- -->
 
 ## ⚙️ Installation
 
@@ -175,8 +175,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For queries or suggestions, feel free to contact:
 
 - **Name:** Your Name
-- **Email:** your.email@example.com
-- **GitHub:** [your-username](https://github.com/your-username)
+- **Email:** ankonchy1@gmail.com
+- **GitHub:** [your-username](https://github.com/AnkonChy)
 
 ---
 

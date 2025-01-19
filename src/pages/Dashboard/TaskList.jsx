@@ -33,7 +33,7 @@ const TaskList = () => {
         {allTasks.map((task) => (
           <div key={task._id} className="card bg-base-100 shadow-xl">
             <figure>
-              <img className="h-60 object-cover" src={task.task_img_url} />
+              <img className="h-60 object-cover w-full" src={task.task_img_url} />
             </figure>
             <div className="card-body">
               <h2 className="card-title">

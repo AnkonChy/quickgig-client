@@ -18,6 +18,7 @@ const AddTasks = () => {
       req_workers: parseInt(data.req_workers),
       amount: parseInt(data.amount),
       completion_date: data.completion_date,
+      current_date: new Date().toLocaleDateString("en-GB"),
       sub_info: data.sub_info,
       task_img_url: data.task_img_url,
       buyer_email: user?.email,
