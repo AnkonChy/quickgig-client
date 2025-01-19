@@ -56,11 +56,40 @@ const TaskToReview = () => {
                   <td>{task.task_title}</td>
                   <td>{task.payable_amount}</td>
                   <td>
-                    <Link to={`/dashboard/updateTask/${task._id}`}>
-                      <button className="btn btn-lg bg-green-500">
-                        <FaEye />
-                      </button>
-                    </Link>
+                    {/* <Link to={`/dashboard/updateTask/${task._id}`}> */}
+                    <button
+                      onClick={() =>
+                        document.getElementById("my_modal_5").showModal()
+                      }
+                      className="btn btn-lg bg-green-500"
+                    >
+                      <FaEye />
+                    </button>
+                    {/* modal  */}
+
+                    <dialog
+                      id="my_modal_5"
+                      className="modal modal-bottom sm:modal-middle"
+                    >
+                      <div className="modal-box text-center">
+                        <h3 className="font-bold text-xl">{task.task_title}</h3>
+                        <h4 className="font-medium text-lg">Worker Name: {task.worker_name}</h4>
+                        <h4  className="font-medium text-lg">Worker Name: {task.worker_email}</h4>
+                        <h4  className="font-medium text-lg">Payable Amount: {task.payable_amount}</h4>
+                        <p className="font-medium">Submission Details: {task.submission_details}</p>
+                        <p className="text-sm font-medium">Status: {task.status}</p>
+                        <p className="py-4">
+                          Press ESC key or click the button below to close
+                        </p>
+                        <div className="modal-action">
+                          <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn">Close</button>
+                          </form>
+                        </div>
+                      </div>
+                    </dialog>
+                    {/* </Link> */}
                   </td>
                   <td>
                     <button
