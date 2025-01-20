@@ -17,6 +17,7 @@ import BuyerHome from "../pages/Dashboard/BuyerHome";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
 import PurchaseCoin from "../pages/Dashboard/PurchaseCoin";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
         element: <Payment></Payment>,
         loader: ({ params }) =>
           fetch(`http://localhost:4000/paymentCard/${params.id}`),
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
       },
       //worker
       {

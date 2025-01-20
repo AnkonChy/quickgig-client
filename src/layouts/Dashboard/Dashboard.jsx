@@ -5,6 +5,11 @@ import useAuth from "../../hooks/useAuth";
 import useBuyer from "../../hooks/useBuyer";
 import useWorker from "../../hooks/useWorker";
 import DashNav from "../../components/Dashboard/DashNav";
+import { MdPayments } from "react-icons/md";
+import { FaHome } from "react-icons/fa";
+import { BiSolidPurchaseTag } from "react-icons/bi";
+import { IoIosAddCircle } from "react-icons/io";
+import { BiTask } from "react-icons/bi";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
@@ -24,12 +29,13 @@ const Dashboard = () => {
           {isAdmin ? (
             <>
               <li className="my-1">
-                <NavLink className="text-center">Admin Home</NavLink>
+                <NavLink>
+                  <FaHome />
+                  Admin Home
+                </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/allUsers" className="text-center">
-                  Manage Users
-                </NavLink>
+                <NavLink to="/dashboard/allUsers">Manage Users</NavLink>
               </li>
               <li className="my-1">
                 <NavLink className="text-center">Manage Task</NavLink>
@@ -38,41 +44,51 @@ const Dashboard = () => {
           ) : isBuyer ? (
             <>
               <li className="my-1">
-                <NavLink className="text-center">Buyer Home</NavLink>
+                <NavLink>
+                  <FaHome />
+                  Buyer Home
+                </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/addTask" className="text-center">
+                <NavLink to="/dashboard/addTask">
+                  <IoIosAddCircle />
                   Add new Tasks
                 </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/myTask" className="text-center">
+                <NavLink to="/dashboard/myTask">
+                  <BiTask />
                   My Task's
                 </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/purchaseCoin" className="text-center">
+                <NavLink to="/dashboard/purchaseCoin">
+                  <BiSolidPurchaseTag />
                   Purchase Coin
+                </NavLink>
+              </li>
+              <li className="my-1">
+                <NavLink to="/dashboard/paymentHistory">
+                  <MdPayments />
+                  Payment History
                 </NavLink>
               </li>
             </>
           ) : isWorker ? (
             <>
               <li className="my-1">
-                <NavLink className="text-center">Worker Home</NavLink>
-              </li>
-              <li className="my-1">
-                <NavLink to="/dashboard/taskList" className="text-center">
-                  TaskList
+                <NavLink className="text-center">
+                  <FaHome /> Worker Home
                 </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/allSubmission" className="text-center">
-                  My Submission
-                </NavLink>
+                <NavLink to="/dashboard/taskList">TaskList</NavLink>
               </li>
               <li className="my-1">
-                <NavLink className="text-center">Withdrawals</NavLink>
+                <NavLink to="/dashboard/allSubmission">My Submission</NavLink>
+              </li>
+              <li className="my-1">
+                <NavLink>Withdrawals</NavLink>
               </li>
             </>
           ) : (

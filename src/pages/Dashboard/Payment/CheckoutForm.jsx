@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({ dollars }) => {
   console.log(dollars);
@@ -66,6 +67,25 @@ const CheckoutForm = ({ dollars }) => {
       if (paymentIntent.status === "succeeded") {
         console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
+
+        //now save the payment history in db
+        const payment = {
+          email: user.email,
+          price: dollars,
+          transactionId: paymentIntent.id,
+          date: new Date().toLocaleString(),
+        };
+        const res = await axiosSecure.post("/payments", payment);
+        console.log("payment saved", res);
+        if (res.data?.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Thank You.Payment Successful",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       }
     }
   };

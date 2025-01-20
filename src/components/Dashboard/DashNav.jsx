@@ -22,7 +22,7 @@ const DashNav = () => {
     <div className="navbar bg-base-100">
       <div className="flex-1"></div>
       <div className="flex-none">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-6">
           <div className="flex items-center gap-1">
             <img
               className="w-8"
@@ -42,7 +42,7 @@ const DashNav = () => {
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
-              <IoNotificationsCircle className="text-3xl text-blue-800" />
+              <img src="https://img.icons8.com/?size=30&id=Zux1S8Y4NyXe&format=gif" alt="" />
             </div>
           </div>
           <div

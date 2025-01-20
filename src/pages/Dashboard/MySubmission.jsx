@@ -20,6 +20,7 @@ const MySubmission = () => {
       const res = await axiosSecure.get(
         `/allSubmission/worker?email=${user?.email}`
       );
+      console.log(res.data);
       return res.data;
     },
   });
