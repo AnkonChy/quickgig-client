@@ -51,7 +51,9 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li className="my-1">
-                <NavLink className="text-center">Purchase Coin</NavLink>
+                <NavLink to="/dashboard/purchaseCoin" className="text-center">
+                  Purchase Coin
+                </NavLink>
               </li>
             </>
           ) : isWorker ? (
