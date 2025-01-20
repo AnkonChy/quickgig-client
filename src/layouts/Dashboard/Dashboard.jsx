@@ -46,7 +46,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/allTasks" className="text-center">
+                <NavLink to="/dashboard/myTask" className="text-center">
                   My Task's
                 </NavLink>
               </li>
@@ -82,79 +82,6 @@ const Dashboard = () => {
       {/* dashboard content  */}
       <div className="flex-1">
         {/* navbar dash  */}
-        {/* <div className="navbar bg-base-100">
-          <div className="flex-1">
-            <a className="btn btn-ghost text-xl"></a>
-          </div>
-          <div className="flex-none">
-            <div>
-              <div className="flex items-center gap-2">
-                <h1>User role: bla</h1>
-                <p>||</p>
-                <h1>User Name: {user?.displayName}</h1>
-              </div>
-              <div>
-                <p className="text-center">Available Coin: 2000</p>
-              </div>
-            </div>
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle ml-2"
-              >
-                <div className="indicator">
-                  <IoNotificationsCircle className="text-4xl" />
-                </div>
-              </div>
-              <div
-                tabIndex={0}
-                className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow"
-              >
-                <div className="card-body">
-                  <span className="text-lg font-bold">8 Items</span>
-                  <span className="text-info">Subtotal: $999</span>
-                  <div className="card-actions">
-                    <button className="btn btn-primary btn-block">
-                      View cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full">
-                  <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                  />
-                </div>
-              </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-              >
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a>Logout</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div> */}
         <DashNav></DashNav>
         <div className="w-10/12 mx-auto">
           <Outlet></Outlet>

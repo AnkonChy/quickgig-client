@@ -11,14 +11,15 @@ const MyTasks = () => {
   const axiosSecure = useAxiosSecure();
 
   const {
-    data: tasks = [],
+    data: myTasks = [],
     isPending,
     refetch,
   } = useQuery({
-    queryKey: ["tasks"],
+    queryKey: ["myTasks"],
     enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure.get(`/tasks/owner?email=${user?.email}`);
+      console.log(res.data);
       return res.data;
     },
   });
@@ -56,14 +57,14 @@ const MyTasks = () => {
     <div>
       <div className="flex justify-evenly items-center my-4">
         <h2 className="text-3xl">All Users</h2>
-        <h2 className="text-3xl">Total Task: {tasks.length}</h2>
+        <h2 className="text-3xl">Total Task:</h2>
       </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
           <thead>
             <tr>
-              <th></th>
+              <th>#</th>
               <th>Title</th>
               <th>Detail</th>
               <th>Required Workers</th>
@@ -76,7 +77,7 @@ const MyTasks = () => {
             </tr>
           </thead>
           <tbody>
-            {tasks.map((task, index) => (
+            {myTasks.map((task, index) => (
               <tr key={task._id}>
                 <th>{index + 1}</th>
                 <td>{task.title}</td>

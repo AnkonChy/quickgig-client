@@ -52,7 +52,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <DashboardHome></DashboardHome>
+        element: <DashboardHome></DashboardHome>,
       },
       // {
       //   path: "taskList",
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         element: <AddTasks></AddTasks>,
       },
       {
-        path: "allTasks",
+        path: "myTask",
         element: <MyTasks></MyTasks>,
       },
       {
