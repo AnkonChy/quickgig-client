@@ -4,6 +4,7 @@ import { IoNotificationsCircle } from "react-icons/io5";
 import useAuth from "../../hooks/useAuth";
 import useBuyer from "../../hooks/useBuyer";
 import useWorker from "../../hooks/useWorker";
+import DashNav from "../../components/Dashboard/DashNav";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
@@ -81,7 +82,7 @@ const Dashboard = () => {
       {/* dashboard content  */}
       <div className="flex-1">
         {/* navbar dash  */}
-        <div className="navbar bg-base-100">
+        {/* <div className="navbar bg-base-100">
           <div className="flex-1">
             <a className="btn btn-ghost text-xl"></a>
           </div>
@@ -153,7 +154,8 @@ const Dashboard = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
+        <DashNav></DashNav>
         <div className="w-10/12 mx-auto">
           <Outlet></Outlet>
         </div>

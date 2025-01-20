@@ -39,7 +39,7 @@ const TaskDetails = () => {
       status: "pending",
     };
     const submitResponse = await axiosSecure.post("/addSubmit", taskItem);
- 
+
     if (submitResponse.data.insertedId) {
       Swal.fire({
         position: "top-end",
@@ -113,7 +113,7 @@ const TaskDetails = () => {
                   <span className="label-text">Submission Details*</span>
                 </div>
                 <textarea
-                  {...register("submission_details")}
+                  {...register("submission_details", { required: true })}
                   className="textarea textarea-bordered h-24"
                   placeholder="Submission Details"
                 ></textarea>

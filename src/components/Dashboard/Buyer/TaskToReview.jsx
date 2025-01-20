@@ -22,13 +22,36 @@ const TaskToReview = () => {
       const res = await axiosSecure.get(
         `/submission/buyer_email?email=${user?.email}`
       );
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     },
   });
+
+  console.log(taskReviews);
+
+  const handleApprove = async (task) => {
+    const response = await axiosSecure.patch(`/submission/approve`, {
+      submissionId: task._id,
+    });
+    refetch();
+    // if (response.data.success) {
+    //   // Refetch the data to update the UI
+    //   refetch();
+    //   alert("Task approved successfully!");
+    // } else {
+    //   alert("Failed to approve the task.");
+    // }
+  };
+
+  const handleReject = async (task) => {
+    const response = await axiosSecure.patch(`/submission/reject`, {
+      submissionId: task._id,
+      taskId: task.task_id,
+    });
+    refetch();
+  };
   return (
-    <div>
-      {" "}
+    <div className="mt-20">
       <div>
         <div className="flex justify-evenly items-center my-4">
           <h2 className="text-3xl">My All submission</h2>
@@ -73,11 +96,21 @@ const TaskToReview = () => {
                     >
                       <div className="modal-box text-center">
                         <h3 className="font-bold text-xl">{task.task_title}</h3>
-                        <h4 className="font-medium text-lg">Worker Name: {task.worker_name}</h4>
-                        <h4  className="font-medium text-lg">Worker Name: {task.worker_email}</h4>
-                        <h4  className="font-medium text-lg">Payable Amount: {task.payable_amount}</h4>
-                        <p className="font-medium">Submission Details: {task.submission_details}</p>
-                        <p className="text-sm font-medium">Status: {task.status}</p>
+                        <h4 className="font-medium text-lg">
+                          Worker Name: {task.worker_name}
+                        </h4>
+                        <h4 className="font-medium text-lg">
+                          Worker Name: {task.worker_email}
+                        </h4>
+                        <h4 className="font-medium text-lg">
+                          Payable Amount: {task.payable_amount}
+                        </h4>
+                        <p className="font-medium">
+                          Submission Details: {task.submission_details}
+                        </p>
+                        <p className="text-sm font-medium">
+                          Status: {task.status}
+                        </p>
                         <p className="py-4">
                           Press ESC key or click the button below to close
                         </p>
@@ -92,16 +125,22 @@ const TaskToReview = () => {
                     {/* </Link> */}
                   </td>
                   <td>
-                    <button
-                      onClick={() => handleDeleteTask(task)}
-                      className="btn btn-xs"
-                    >
-                      <SiTicktick className="text-green-600 text-lg" />
-                    </button>
+                    {task?.status === "approve" ? (
+                      "Approved"
+                    ) : (
+                      <>
+                        <button
+                          onClick={() => handleApprove(task)}
+                          className="btn btn-xs"
+                        >
+                          <SiTicktick className="text-green-600 text-lg" />
+                        </button>
+                      </>
+                    )}
                   </td>
                   <td>
                     <button
-                      onClick={() => handleDeleteTask(task)}
+                      onClick={() => handleReject(task)}
                       className="btn btn-xs"
                     >
                       <MdCancel className="text-red-600 text-lg" />

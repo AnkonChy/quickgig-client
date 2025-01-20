@@ -3,6 +3,7 @@ import React from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import { RiTodoLine } from "react-icons/ri";
+import { MdOutlinePendingActions } from "react-icons/md";
 
 const BuyerStates = () => {
   const { user } = useAuth();
@@ -11,7 +12,7 @@ const BuyerStates = () => {
   const { data: buyerStates } = useQuery({
     queryKey: ["buyerStates"],
     queryFn: async () => {
-      const res =await axiosSecure.get(`/buyer-stats?email=${user?.email}`);
+      const res = await axiosSecure.get(`/buyer-stats?email=${user?.email}`);
       return res.data;
     },
   });
@@ -25,15 +26,15 @@ const BuyerStates = () => {
         <div className="stat-value">{buyerStates?.totalTask}</div>
       </div>
 
-      {/* <div className="stat">
+      <div className="stat">
         <div className="stat-figure text-secondary">
-          <PiUsersThreeBold className="text-3xl text-green-700" />
+          <MdOutlinePendingActions className="text-3xl text-green-700" />
         </div>
         <div className="stat-title">Total Buyer</div>
-        <div className="stat-value">{adminStats?.totalBuyer}</div>
+        <div className="stat-value">{buyerStates?.pendingTask}</div>
       </div>
 
-      <div className="stat">
+      {/* <div className="stat">
         <div className="stat-figure text-secondary">
           <TbCoin className="text-3xl text-green-700" />
         </div>
