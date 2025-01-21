@@ -1,8 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
   const { user, handleLogout } = useAuth();
+  const axiosSecure = useAxiosSecure();
+
+  const { data: usersByEmail = [] } = useQuery({
+    queryKey: ["usersByEmail", user?.email],
+    enabled: !!user?.email,
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/users/email?email=${user?.email}`);
+      // console.log(res);
+      return res.data;
+    },
+  });
 
   return (
     <div className="navbar bg-base-100 my-3 w-11/12 mx-auto">
@@ -15,11 +28,21 @@ const Navbar = () => {
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-6 font-semibold md:text-xl">
+        <ul className="menu menu-horizontal px-1 gap-7 font-semibold md:text-xl items-center">
           {user ? (
             <>
               <NavLink to="/dashboard">Dashboard</NavLink>
-              <NavLink>Available Coin</NavLink>
+              <NavLink className="flex items-center gap-1">
+                Available Coin
+                <div className="flex gap-1 items-center">
+                  <img
+                    className="w-8"
+                    src="https://img.icons8.com/?size=48&id=LVIob8w9LnNE&format=gif"
+                    alt=""
+                  />
+                  <h1 className="font-medium">{usersByEmail.coin}</h1>
+                </div>
+              </NavLink>
               <NavLink to="/profile">User Profile</NavLink>
             </>
           ) : (

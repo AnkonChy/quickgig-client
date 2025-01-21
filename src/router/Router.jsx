@@ -21,6 +21,7 @@ import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 import Withdrawals from "../pages/Dashboard/Withdrawals";
 import ManageTasks from "../pages/Dashboard/ManageTasks";
 import UserProfile from "../pages/UserProfile/UserProfile";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +53,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <UserProfile></UserProfile>
+        element: (
+          <PrivateRoute>
+            <UserProfile></UserProfile>
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -23,7 +23,7 @@ const BestWorker = ({ data }) => {
         </div>
 
         <div className="card-actions justify-end">
-          <button className="btn btn-success">Contact</button>
+          <button className="px-2 py-2 rounded-md  bg-blue-900 text-white">Contact</button>
         </div>
       </div>
     </div>

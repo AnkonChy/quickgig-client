@@ -19,7 +19,7 @@ const Blogs = () => {
       <p className="text-lg text-center">
         Discover key strategies and tips to accelerate your career development.
       </p>
-      <div className="grid  md:grid-cols-2 lg:grid-cols-4 gap-2">
+      <div className="grid  md:grid-cols-2 lg:grid-cols-3 gap-4">
         {blogs.map((blog) => (
           <div key={blog._id} className="card bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">

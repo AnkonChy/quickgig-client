@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
@@ -24,6 +24,17 @@ const MySubmission = () => {
       return res.data;
     },
   });
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = submissions.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const totalPages = Math.ceil(submissions.length / itemsPerPage);
   return (
     <div>
       <SectionTitle
@@ -49,12 +60,10 @@ const MySubmission = () => {
                 <th>Buyer Email</th>
                 <th>Current Date</th>
                 <th>Status</th>
-                <th>Update</th>
-                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-              {submissions.map((submission, index) => (
+              {currentItems.map((submission, index) => (
                 <tr key={submission._id}>
                   <th>{index + 1}</th>
                   <td>{submission.task_title}</td>
@@ -69,31 +78,36 @@ const MySubmission = () => {
                       className={
                         submission.status === "pending"
                           ? "bg-orange-400 px-1 rounded-lg font-medium"
-                          : "bg-blue-600 text-white"
+                          : "bg-green-600 text-white"
                       }
                     >
                       {submission.status}
                     </span>
                   </td>
-                  {/* <td>
-                    <Link to={`/dashboard/updateTask/${task._id}`}>
-                      <button className="btn btn-ghost btn-lg bg-green-500">
-                        <FaEdit className=" text-white" />
-                      </button>
-                    </Link>
-                  </td>
-                  <td>
-                    <button
-                      onClick={() => handleDeleteTask(task)}
-                      className="btn btn-xs"
-                    >
-                      <FaTrashAlt className="text-red-600 text-lg" />
-                    </button>
-                  </td> */}
                 </tr>
               ))}
             </tbody>
           </table>
+
+          <div className="flex justify-center my-4 items-center">
+            <button
+              onClick={() => paginate(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="btn btn-ghost"
+            >
+              Previous
+            </button>
+            <span className="mx-2">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              onClick={() => paginate(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="btn btn-ghost"
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>

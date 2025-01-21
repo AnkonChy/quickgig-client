@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const Companies = () => {
   return (
-    <div className="my-10">
+    <div className="my-20">
       <h1 className=" animate__animated animate__fadeInLeft text-3xl md:text-4xl text-center lg:text-5xl font-bold my-4">
         Our Trusted Partners
       </h1>
@@ -26,12 +26,12 @@ const Companies = () => {
         </div>
         <div className="card bg-base-100 w-96 shadow-xl">
           <div className="card-body">
-            <h2 className="card-title">Fiver</h2>
+            <h2 className="card-title">Programming Hero</h2>
           </div>
           <figure>
             <img
               className="h-24"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Fiverr_Logo_09.2020.svg/2560px-Fiverr_Logo_09.2020.svg.png"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpPVpbZLU2NDdFf12bGhPlzuBrbkThiHNLgw&s"
               alt="Shoes"
             />
           </figure>
@@ -50,12 +50,12 @@ const Companies = () => {
         </div>
         <div className="card bg-base-100 w-96 shadow-xl">
           <div className="card-body">
-            <h2 className="card-title">Fiver</h2>
+            <h2 className="card-title">Careerjet</h2>
           </div>
           <figure>
             <img
               className="h-24"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Fiverr_Logo_09.2020.svg/2560px-Fiverr_Logo_09.2020.svg.png"
+              src="https://getleadline.com/wp-content/uploads/brand-logo-careerjet-1.png"
               alt="Shoes"
             />
           </figure>
