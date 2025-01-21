@@ -9,6 +9,7 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
+import WithdrawRequest from "../../components/Dashboard/Admin/WithdrawalRequest/WithdrawRequest";
 
 const AdminHome = () => {
   const axiosSecure = useAxiosSecure();
@@ -52,6 +53,7 @@ const AdminHome = () => {
           <div className="stat-value">{adminStats?.totalAvailableCoin}</div>
         </div>
       </div>
+      <WithdrawRequest></WithdrawRequest>
     </div>
   );
 };
