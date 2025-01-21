@@ -77,7 +77,7 @@ const Dashboard = () => {
           ) : isWorker ? (
             <>
               <li className="my-1">
-                <NavLink className="text-center">
+                <NavLink>
                   <FaHome /> Worker Home
                 </NavLink>
               </li>
@@ -88,7 +88,7 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/allSubmission">My Submission</NavLink>
               </li>
               <li className="my-1">
-                <NavLink>Withdrawals</NavLink>
+                <NavLink to="/dashboard/withdrawals">Withdrawals</NavLink>
               </li>
             </>
           ) : (

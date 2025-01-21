@@ -18,6 +18,7 @@ import DashboardHome from "../pages/Dashboard/DashboardHome";
 import PurchaseCoin from "../pages/Dashboard/PurchaseCoin";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
+import Withdrawals from "../pages/Dashboard/Withdrawals";
 
 const router = createBrowserRouter([
   {
@@ -33,10 +34,10 @@ const router = createBrowserRouter([
             "http://localhost:4000/sortWorkers"
           );
           const sortWorkerData = await sortWorkerRes.json();
-          const allTaskRes = await fetch("http://localhost:4000/allTasks");
-          const allTasksData = await allTaskRes.json();
+          // const allTaskRes = await fetch("http://localhost:4000/allTasks");
+          // const allTasksData = await allTaskRes.json();
 
-          return { sortWorkerData, allTasksData };
+          return { sortWorkerData };
         },
       },
       {
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
       {
         path: "allSubmission",
         element: <MySubmission></MySubmission>,
+      },
+      {
+        path: "withdrawals",
+        element: <Withdrawals></Withdrawals>,
       },
 
       //admin

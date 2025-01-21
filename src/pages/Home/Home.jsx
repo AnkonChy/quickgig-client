@@ -4,6 +4,8 @@ import BestWorkers from "../../components/BestWorkers/BestWorkers";
 import { useLoaderData } from "react-router-dom";
 import Testimonial from "../../components/Testimonial/Testimonial";
 import FreshOpportunities from "../../components/FreshOpportunities/FreshOpportunities";
+import Blogs from "../Blogs/Blogs";
+import Companies from "../Companies/Companies";
 
 const Home = () => {
   const { sortWorkerData, allTasksData } = useLoaderData();
@@ -27,19 +29,10 @@ const Home = () => {
         </div>
       </div>
       <div className="mt-20 w-11/12 mx-auto">
-        <h1 className=" animate__animated animate__fadeInLeft text-3xl md:text-4xl text-center lg:text-5xl font-bold my-4">
-          Fresh Opportunities
-        </h1>
-        <p className="text-lg text-center">
-          Discover the latest career opportunities tailored to your skills and
-          aspirations.
-        </p>
-        <div>
-          {allTasksData.map((task) => (
-            <FreshOpportunities key={task._id} task={task}></FreshOpportunities>
-          ))}
-        </div>
+        <FreshOpportunities></FreshOpportunities>
+        <Blogs></Blogs>
       </div>
+      <Companies></Companies>
     </div>
   );
 };

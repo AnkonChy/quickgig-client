@@ -14,7 +14,7 @@ const DashNav = () => {
     enabled: !!user?.email,
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/email?email=${user?.email}`);
-      console.log(res);
+      // console.log(res);
       return res.data;
     },
   });
