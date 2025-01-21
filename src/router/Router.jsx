@@ -20,6 +20,7 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 import Withdrawals from "../pages/Dashboard/Withdrawals";
 import ManageTasks from "../pages/Dashboard/ManageTasks";
+import UserProfile from "../pages/UserProfile/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/profile",
+        element: <UserProfile></UserProfile>
       },
     ],
   },

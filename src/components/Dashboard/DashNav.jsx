@@ -6,7 +6,7 @@ import { IoNotificationsCircle } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 
 const DashNav = () => {
-  const { user } = useAuth();
+  const { user,handleLogout } = useAuth();
   const axiosSecure = useAxiosSecure();
 
   const { data: usersByEmail = [] } = useQuery({
@@ -42,7 +42,10 @@ const DashNav = () => {
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
-              <img src="https://img.icons8.com/?size=30&id=Zux1S8Y4NyXe&format=gif" alt="" />
+              <img
+                src="https://img.icons8.com/?size=30&id=Zux1S8Y4NyXe&format=gif"
+                alt=""
+              />
             </div>
           </div>
           <div
@@ -73,16 +76,12 @@ const DashNav = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
+              <button
+                className="py-2 px-4 md:ml-2 border-2 border-green-800 text-green-800 hover:bg-green-900 hover:text-white rounded font-semibold md:text-xl"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
             </li>
           </ul>
         </div>

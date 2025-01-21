@@ -20,7 +20,7 @@ const Navbar = () => {
             <>
               <NavLink to="/dashboard">Dashboard</NavLink>
               <NavLink>Available Coin</NavLink>
-              <NavLink>User Profile</NavLink>
+              <NavLink to="/profile">User Profile</NavLink>
             </>
           ) : (
             ""

@@ -55,8 +55,8 @@ const TaskDetails = () => {
     <div>
       <SectionTitle heading="Task Details Page"></SectionTitle>
 
-      <div className="w-10/12 mx-auto my-10 ">
-        <div className="flex flex-col md:flex-row gap-10">
+      <div className="w-11/12 mx-auto my-10 ">
+        <div className="flex flex-col md:flex-row gap-8">
           {/* task details  */}
           <div className="md:w-1/2">
             <div>
