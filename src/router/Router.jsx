@@ -19,6 +19,7 @@ import PurchaseCoin from "../pages/Dashboard/PurchaseCoin";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 import Withdrawals from "../pages/Dashboard/Withdrawals";
+import ManageTasks from "../pages/Dashboard/ManageTasks";
 
 const router = createBrowserRouter([
   {
@@ -58,10 +59,15 @@ const router = createBrowserRouter([
         index: true,
         element: <DashboardHome></DashboardHome>,
       },
-      // {
-      //   path: "taskList",
-      //   element: <TaskList></TaskList>,
-      // },
+      //admin
+      {
+        path: "allUsers",
+        element: <ManageUsers></ManageUsers>,
+      },
+      {
+        path: "manageTasks",
+        element: <ManageTasks></ManageTasks>,
+      },
 
       //buyer
       {
@@ -110,12 +116,6 @@ const router = createBrowserRouter([
       {
         path: "withdrawals",
         element: <Withdrawals></Withdrawals>,
-      },
-
-      //admin
-      {
-        path: "allUsers",
-        element: <ManageUsers></ManageUsers>,
       },
     ],
   },

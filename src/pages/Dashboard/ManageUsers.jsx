@@ -5,12 +5,15 @@ import { useQuery } from "@tanstack/react-query";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const ManageUsers = () => {
+  // const { user, loading } = useAuth();
   const axiosSecure = useAxiosSecure();
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
+    // enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
       return res.data;
@@ -53,7 +56,7 @@ const ManageUsers = () => {
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount) {
-          refetch()
+          refetch();
           Swal.fire({
             position: "top-end",
             icon: "success",

@@ -17,7 +17,7 @@ const Dashboard = () => {
   const [isWorker] = useWorker();
   const { user } = useAuth();
   return (
-    <div className=" flex">
+    <div className="flex">
       {/* sidebar  */}
       <div className="w-64 bg-slate-700 min-h-screen">
         <h1 className="text-center mt-5 mb-2 text-2xl md:text-3xl text-white">
@@ -38,7 +38,7 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/allUsers">Manage Users</NavLink>
               </li>
               <li className="my-1">
-                <NavLink className="text-center">Manage Task</NavLink>
+                <NavLink to="/dashboard/manageTasks">Manage Task</NavLink>
               </li>
             </>
           ) : isBuyer ? (
