@@ -5,10 +5,10 @@ const BestWorkers = ({ sortWorkerData }) => {
   console.log(sortWorkerData);
   return (
     <div className="mt-20">
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {sortWorkerData.map((data) => (
-          <BestWorker key={data._id} data={data}></BestWorker>
-        ))}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {sortWorkerData
+          .map((data) => <BestWorker key={data._id} data={data}></BestWorker>)
+          .slice(0, 6)}
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ const FreshOpportunities = () => {
         Discover the latest career opportunities tailored to your skills and
         aspirations.
       </p>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 mb-20 rounded-none">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10 mb-20 rounded-none">
         {tasks
           .map((task) => (
             <div
@@ -62,7 +62,7 @@ const FreshOpportunities = () => {
               </div>
             </div>
           ))
-          .slice(0, 3)}
+          .slice(0, 4)}
       </div>
     </div>
   );

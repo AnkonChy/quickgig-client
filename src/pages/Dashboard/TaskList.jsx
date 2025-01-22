@@ -29,25 +29,33 @@ const TaskList = () => {
         heading="All Tasks List"
         subHeading="You can see all tasks list for this website"
       ></SectionTitle>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 gap-6">
         {allTasks.map((task) => (
           <div key={task._id} className="card bg-base-100 shadow-xl">
             <figure>
-              <img className="h-60 object-cover w-full" src={task.task_img_url} />
+              <img
+                className="h-60 object-cover w-full"
+                src={task.task_img_url}
+              />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                {task.title}
-                <div className="badge badge-secondary">
-                  <FaDollarSign></FaDollarSign>
-                  {task.amount}
+            <div className="card-body space-y-4">
+              <h2 className="card-title font-bold text-2xl">{task.title}</h2>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xl font-medium">{task.buyer_name}</p>
                 </div>
-              </h2>
-              <p>{task.detail}</p>
-              <div className="card-actions justify-end">
-                <div className="badge badge-outline">
+                <div>
+                  <p className="text-xl font-medium">{task.completion_date}</p>
+                </div>
+              </div>
+              <div className="card-actions justify-between items-center">
+                <div className="badge badge-secondary py-3">
+                  <FaDollarSign></FaDollarSign>
+                  <p className="font-medium text-lg ml-2">{task.amount}</p>
+                </div>
+                <div className="badge badge-outline py-3">
                   <FaUser></FaUser>
-                  {task.req_workers}
+                  <p className="font-medium text-lg ml-2">{task.req_workers}</p>
                 </div>
               </div>
             </div>

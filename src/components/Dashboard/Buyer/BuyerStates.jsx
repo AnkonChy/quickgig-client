@@ -3,7 +3,7 @@ import React from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import { RiTodoLine } from "react-icons/ri";
-import { MdOutlinePendingActions } from "react-icons/md";
+import { MdOutlinePendingActions, MdPayments } from "react-icons/md";
 
 const BuyerStates = () => {
   const { user } = useAuth();
@@ -30,17 +30,17 @@ const BuyerStates = () => {
         <div className="stat-figure text-secondary">
           <MdOutlinePendingActions className="text-3xl text-green-700" />
         </div>
-        <div className="stat-title">Total Buyer</div>
+        <div className="stat-title">Pending Task</div>
         <div className="stat-value">{buyerStates?.pendingTask}</div>
       </div>
 
-      {/* <div className="stat">
+      <div className="stat">
         <div className="stat-figure text-secondary">
-          <TbCoin className="text-3xl text-green-700" />
+          <MdPayments className="text-3xl text-green-700" />
         </div>
-        <div className="stat-title">Total Coin</div>
-        <div className="stat-value">{adminStats?.totalAvailableCoin}</div>
-      </div> */}
+        <div className="stat-title">Total Payment</div>
+        <div className="stat-value">{buyerStates?.totalPayment} $</div>
+      </div>
     </div>
   );
 };

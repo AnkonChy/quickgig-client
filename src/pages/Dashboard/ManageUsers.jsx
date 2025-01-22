@@ -89,7 +89,7 @@ const ManageUsers = () => {
                 <th>Profile Picture</th>
                 <th>Current role</th>
                 <th>Coin</th>
-                <th>Delete</th>
+                <th>Remove</th>
                 <th>Update Role</th>
               </tr>
             </thead>

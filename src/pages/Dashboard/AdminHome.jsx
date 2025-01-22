@@ -1,7 +1,7 @@
 import React from "react";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { FaUsers } from "react-icons/fa6";
+import { FaRegMoneyBill1, FaUsers } from "react-icons/fa6";
 import { PiUsersThreeBold } from "react-icons/pi";
 import { TbCoin } from "react-icons/tb";
 import {
@@ -51,6 +51,13 @@ const AdminHome = () => {
           </div>
           <div className="stat-title">Total Coin</div>
           <div className="stat-value">{adminStats?.totalAvailableCoin}</div>
+        </div>
+        <div className="stat">
+          <div className="stat-figure text-secondary">
+            <FaRegMoneyBill1 className="text-3xl text-green-700" />
+          </div>
+          <div className="stat-title">Total Payments</div>
+          <div className="stat-value">{adminStats?.totalPayments}</div>
         </div>
       </div>
       <WithdrawRequest></WithdrawRequest>

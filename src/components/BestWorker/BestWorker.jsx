@@ -17,7 +17,7 @@ const BestWorker = ({ data }) => {
 
         <div>
           <h1 className="font-medium flex-grow">
-            <span className="font-bold">Total Coin:</span>
+            <span className="font-bold">Available Coin:</span>
             {coin}
           </h1>
         </div>

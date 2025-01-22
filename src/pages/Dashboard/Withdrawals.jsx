@@ -125,7 +125,8 @@ const Withdrawals = () => {
         </label>
 
         <button disabled={withdrawals.coins < 200} className="btn my-4">
-          Withdraw <FaTasks className="ml-2" />
+          {withdrawals.coins > 200 ? "Withdraw" : "Insufficient coin"}{" "}
+          <FaTasks className="ml-2" />
         </button>
       </form>
     </div>

@@ -31,8 +31,8 @@ const PurchaseCoin = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">{card.coins} coins</h2>
-                <p>{card.dollars} $</p>
+                <h2 className="card-title text-2xl">{card.coins} coins</h2>
+                <p className="text-xl">{card.dollars} $</p>
               </div>
             </div>
           </Link>

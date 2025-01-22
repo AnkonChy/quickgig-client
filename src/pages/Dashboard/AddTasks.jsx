@@ -16,6 +16,7 @@ const AddTasks = () => {
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
+  
 
   const onSubmit = async (data) => {
     //image upload to imgbb and then get an url
@@ -61,7 +62,7 @@ const AddTasks = () => {
             title: "Insufficient Coins",
             text: "You don't have enough coins to create this task.",
           });
-          navigate("/");
+          navigate("/dashboard/purchaseCoin");
         }
       }
     }

@@ -80,7 +80,7 @@ const Navbar = () => {
             (window.location.href =
               "https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-AnkonChy.git")
           }
-          className="py-1 px-2 md:py-1 md:ml-2 md:px-4 border-2 border-red-800 hover:bg-red-900 hover:text-white rounded font-semibold text-xs md:text-base lg:text-xl hidden md:inline-block"
+          className="py-1 px-2 md:py-2 md:ml-2 md:px-4 border-2 border-red-800 hover:bg-red-900 hover:text-white rounded font-semibold text-xs md:text-base lg:text-xl hidden md:inline-block"
         >
           Join as Developer
         </button>

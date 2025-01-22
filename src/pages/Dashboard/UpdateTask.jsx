@@ -42,7 +42,7 @@ const UpdateTask = () => {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: `${data.title} is updated to the tasklist`,
+        title: "Updated Successfully",
         showConfirmButton: false,
         timer: 1500,
       });

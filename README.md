@@ -51,23 +51,11 @@ QuickGig is a micro-task and earning platform where users can complete small tas
 - JWT for secure route protection
 - Postman for API testing
 
-<!-- ---
+## 🌐 Live Site URL
 
-## 🌟 Screenshots
+Visit the live version of QuickGig here: [QuickGig Live Site](https://your-live-site-url.com)
 
-### Home Page
-
-![Home Page](https://via.placeholder.com/800x400?text=Home+Page)
-
-### Worker Dashboard
-
-![Worker Dashboard](https://via.placeholder.com/800x400?text=Worker+Dashboard)
-
-### Buyer Dashboard
-
-![Buyer Dashboard](https://via.placeholder.com/800x400?text=Buyer+Dashboard)
-
---- -->
+---
 
 ## ⚙️ Installation
 
