@@ -25,7 +25,6 @@ const TaskDetails = () => {
   const { register, handleSubmit, reset } = useForm();
   const axiosSecure = useAxiosSecure();
   const onSubmit = async (data) => {
-    console.log(data);
     const taskItem = {
       task_id: _id,
       task_title: title,
@@ -40,11 +39,12 @@ const TaskDetails = () => {
     };
     const submitResponse = await axiosSecure.post("/addSubmit", taskItem);
 
-    if (submitResponse.data.insertedId) {
+    console.log(submitResponse);
+    if (submitResponse.data.result.insertedId) {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: `${data.title} is updated to the tasklist`,
+        title: `Submitted Successfully`,
         showConfirmButton: false,
         timer: 1500,
       });
@@ -55,10 +55,10 @@ const TaskDetails = () => {
     <div>
       <SectionTitle heading="Task Details Page"></SectionTitle>
 
-      <div className="w-11/12 mx-auto my-10 ">
-        <div className="flex flex-col md:flex-row gap-8">
+      <div className="my-10 ">
+        <div className="flex flex-col lg:flex-row gap-8">
           {/* task details  */}
-          <div className="md:w-1/2">
+          <div className="md:w-2/3">
             <div>
               <img
                 className="rounded-2xl h-[400px] object-cover"
@@ -68,12 +68,18 @@ const TaskDetails = () => {
             </div>
             <div className="space-y-4">
               <h1 className="text-4xl font-bold">{title}</h1>
-              <p className="font-medium">
-                <span className="text-lg">Required Worker: </span>
-                {req_workers}
-              </p>
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
+                <p className="font-medium">
+                  <span className="text-lg">Required Worker: </span>
+                  {req_workers}
+                </p>
                 <div className="flex items-center gap-2">
+                  <h3 className="font-medium text-lg">Buyer Name : </h3>
+                  {buyer_name}
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="flex items-center gap-2 ">
                   <p>
                     <span className="font-medium text-lg">
                       Payable Amount:{" "}
@@ -87,19 +93,15 @@ const TaskDetails = () => {
                   {completion_date}
                 </div>
               </div>
-              <div className="flex justify-between items-center">
-                <div className="">
+              <div className="flex justify-between items-center gap-4">
+                <div className="w-2/5">
                   <h3 className="font-medium text-lg">Task Detail:</h3>
                   <p>{detail}</p>
                 </div>
-                <div className="">
+                <div className="w-2/5">
                   <h3 className="font-medium text-lg">Submission Info: </h3>
                   <p>{sub_info}</p>
                 </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <h3 className="font-medium text-lg">Buyer Name : </h3>
-                {buyer_name}
               </div>
             </div>
           </div>
