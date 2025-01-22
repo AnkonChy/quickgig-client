@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-
+import "./Navbar.css";
 const Navbar = () => {
   const { user, handleLogout } = useAuth();
   const axiosSecure = useAxiosSecure();
@@ -63,12 +63,12 @@ const Navbar = () => {
         ) : (
           <>
             <NavLink to="/login">
-              <button className="py-1 px-2 md:py-1 md:px-4 border-2 border-green-800 text-green-800 hover:text-white hover:bg-green-700 rounded font-semibold md:text-xl">
+              <button className="py-1 px-2 md:py-2 md:px-4 border-2 border-green-800 text-green-800 hover:text-white hover:bg-green-700 rounded font-semibold md:text-xl">
                 Login
               </button>
             </NavLink>
             <NavLink to="/register">
-              <button className="py-1 px-2 md:py-1 md:px-4 ml-2 border-2 border-red-800 hover:bg-red-800 hover:text-white rounded font-semibold md:text-xl">
+              <button className="py-1 px-2 md:py-2 md:px-4 ml-2 border-2 border-red-800 hover:bg-red-800 hover:text-white rounded font-semibold md:text-xl">
                 Sign Up
               </button>
             </NavLink>

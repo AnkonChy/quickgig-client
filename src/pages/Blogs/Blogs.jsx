@@ -27,7 +27,7 @@ const Blogs = () => {
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">{blog.title}</h2>
-              <p>Public Date {blog.publishDate}</p>
+              <p>Publish Date {blog.publishDate}</p>
               <p>{blog.description}</p>
               <div className="card-actions">
                 <button className="btn bg-blue-900 text-white">Read More</button>
