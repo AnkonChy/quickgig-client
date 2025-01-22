@@ -20,7 +20,7 @@ const Home = () => {
           <BestWorkers sortWorkerData={sortWorkerData}></BestWorkers>
         </div>
       </div>
-      <div className="mt-20 w-11/12 mx-auto">
+      <div className="py-16 w-11/12 mx-auto">
         <h1 className=" animate__animated animate__fadeInLeft text-3xl md:text-4xl lg:text-5xl font-bold my-8">
           Testimonial
         </h1>
@@ -28,7 +28,7 @@ const Home = () => {
           <Testimonial></Testimonial>
         </div>
       </div>
-      <div className="mt-20 w-11/12 mx-auto">
+      <div className="w-11/12 mx-auto">
         <FreshOpportunities></FreshOpportunities>
         <Blogs></Blogs>
       </div>

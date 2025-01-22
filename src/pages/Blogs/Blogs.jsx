@@ -12,8 +12,8 @@ const Blogs = () => {
     },
   });
   return (
-    <div>
-      <h1 className=" animate__animated animate__fadeInLeft text-3xl md:text-4xl text-center lg:text-5xl font-bold my-4">
+    <div className="py-10">
+      <h1 className="text-3xl md:text-4xl text-center lg:text-5xl font-bold my-4">
         Career Growth Blogs
       </h1>
       <p className="text-lg text-center">

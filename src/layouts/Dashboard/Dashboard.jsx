@@ -6,10 +6,11 @@ import useBuyer from "../../hooks/useBuyer";
 import useWorker from "../../hooks/useWorker";
 import DashNav from "../../components/Dashboard/DashNav";
 import { MdPayments } from "react-icons/md";
-import { FaHome } from "react-icons/fa";
-import { BiSolidPurchaseTag } from "react-icons/bi";
-import { IoIosAddCircle } from "react-icons/io";
-import { BiTask } from "react-icons/bi";
+import { FaHome, FaTasks, FaUsers } from "react-icons/fa";
+import { BiSolidPurchaseTag, BiTask } from "react-icons/bi";
+import { IoIosAddCircle, IoMdCloudDone } from "react-icons/io";
+import { PiHandWithdrawBold } from "react-icons/pi";
+import NotificationsPopup from "../../components/Notifications/NotificationsPopup";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
@@ -18,6 +19,8 @@ const Dashboard = () => {
   const { user } = useAuth();
   return (
     <div className="flex">
+      {/* <NotificationsPopup userEmail={user?.email} /> */}
+
       {/* sidebar  */}
       <div className="w-64 bg-slate-700 min-h-screen">
         <h1 className="text-center mt-5 mb-2 text-2xl md:text-3xl text-white">
@@ -35,10 +38,16 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/allUsers">Manage Users</NavLink>
+                <NavLink to="/dashboard/allUsers">
+                  <FaUsers />
+                  Manage Users
+                </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/manageTasks">Manage Task</NavLink>
+                <NavLink to="/dashboard/manageTasks">
+                  <FaTasks />
+                  Manage Task
+                </NavLink>
               </li>
             </>
           ) : isBuyer ? (
@@ -82,13 +91,22 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/taskList">TaskList</NavLink>
+                <NavLink to="/dashboard/taskList">
+                  <FaTasks />
+                  TaskList
+                </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/allSubmission">My Submission</NavLink>
+                <NavLink to="/dashboard/allSubmission">
+                  <IoMdCloudDone />
+                  My Submission
+                </NavLink>
               </li>
               <li className="my-1">
-                <NavLink to="/dashboard/withdrawals">Withdrawals</NavLink>
+                <NavLink to="/dashboard/withdrawals">
+                  <PiHandWithdrawBold />
+                  Withdrawals
+                </NavLink>
               </li>
             </>
           ) : (

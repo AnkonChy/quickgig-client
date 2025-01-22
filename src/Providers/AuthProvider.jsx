@@ -70,31 +70,6 @@ const AuthProvider = ({ children }) => {
         localStorage.removeItem("access-token");
         setLoading(false);
       }
-
-      //   if (currentUser?.email) {
-      //     const user = { email: currentUser.email };
-      //     axios
-      //       .post(`${import.meta.env.VITE_API_URL}/jwt`, user, {
-      //         withCredentials: true,
-      //       })
-      //       .then((res) => {
-      //         console.log("login", res.data);
-      //         setLoading(false);
-      //       });
-      //   } else {
-      //     axios
-      //       .post(
-      //         `${import.meta.env.VITE_API_URL}/logout`,
-      //         {},
-      //         {
-      //           withCredentials: true,
-      //         }
-      //       )
-      //       .then((res) => {
-      //         console.log("logout", res.data);
-      //         setLoading(false);
-      //       });
-      //   }
     });
     return () => {
       return unsubscribe();

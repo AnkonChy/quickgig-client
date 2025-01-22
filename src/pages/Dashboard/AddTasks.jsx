@@ -156,7 +156,7 @@ const AddTasks = () => {
           {/* task image url  */}
           <label className="form-control w-full my-6">
             <div className="label">
-              <span className="label-text">Task Image URL*</span>
+              <span className="label-text">Task Image URL/File*</span>
             </div>
             {/* <input
               type="url"

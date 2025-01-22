@@ -34,13 +34,6 @@ const TaskToReview = () => {
       submissionId: task._id,
     });
     refetch();
-    // if (response.data.success) {
-    //   // Refetch the data to update the UI
-    //   refetch();
-    //   alert("Task approved successfully!");
-    // } else {
-    //   alert("Failed to approve the task.");
-    // }
   };
 
   const handleReject = async (task) => {

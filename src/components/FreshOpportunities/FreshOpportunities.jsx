@@ -13,7 +13,7 @@ const FreshOpportunities = () => {
     },
   });
   return (
-    <div>
+    <div className="pt-16">
       <h1 className=" animate__animated animate__fadeInLeft text-3xl md:text-4xl text-center lg:text-5xl font-bold my-4">
         Fresh Opportunities
       </h1>
@@ -21,10 +21,13 @@ const FreshOpportunities = () => {
         Discover the latest career opportunities tailored to your skills and
         aspirations.
       </p>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 mb-20">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 mb-20 rounded-none">
         {tasks
           .map((task) => (
-            <div key={task._id} className="card bg-base-100 shadow-xl">
+            <div
+              key={task._id}
+              className="card bg-base-100 shadow-xl rounded-none"
+            >
               <figure>
                 <img
                   src={task.task_img_url}
@@ -42,13 +45,13 @@ const FreshOpportunities = () => {
                     {task.req_workers}
                   </p>
                 </div>
-                <h2 className="text-3xl font-bold">{task.title}</h2>
+                <h2 className="text-2xl font-bold w-4/5">{task.title}</h2>
                 <div className="flex items-center justify-between">
                   <h1 className="text-lg font-bold">Last Date</h1>
                   <p className="text-lg font-bold">{task.completion_date}</p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <h1 className="flex items-center gap-1">
+                  <h1 className="flex items-center gap-1 font-bold text-lg">
                     <FaDollarSign />
                     {task.amount}
                   </h1>

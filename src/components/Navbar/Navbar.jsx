@@ -18,7 +18,7 @@ const Navbar = () => {
   });
 
   return (
-    <div className="navbar bg-base-100 my-3 w-11/12 mx-auto">
+    <div className="navbar bg-base-100 mx-auto fixed z-10 w-full py-5">
       <div className="navbar-start">
         <NavLink
           to="/"

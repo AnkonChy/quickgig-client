@@ -78,7 +78,7 @@ const MySubmission = () => {
                       className={
                         submission.status === "pending"
                           ? "bg-orange-400 px-1 rounded-lg font-medium"
-                          : "bg-green-600 text-white"
+                          : "bg-green-600 text-white rounded-lg font-medium px-1"
                       }
                     >
                       {submission.status}
