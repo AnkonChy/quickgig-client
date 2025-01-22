@@ -53,7 +53,7 @@ QuickGig is a micro-task and earning platform where users can complete small tas
 
 ## 🌐 Live Site URL
 
-Visit the live version of QuickGig here: [QuickGig Live Site](https://your-live-site-url.com)
+Visit the live version of QuickGig here: [QuickGig Live Site](https://quick-gig.web.app/)
 
 ---
 

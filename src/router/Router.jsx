@@ -34,10 +34,10 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: async () => {
           const sortWorkerRes = await fetch(
-            "http://localhost:4000/sortWorkers"
+            "https://quickgig-server.vercel.app/sortWorkers"
           );
           const sortWorkerData = await sortWorkerRes.json();
-          // const allTaskRes = await fetch("http://localhost:4000/allTasks");
+          // const allTaskRes = await fetch("https://quickgig-server.vercel.app/allTasks");
           // const allTasksData = await allTaskRes.json();
 
           return { sortWorkerData };
@@ -92,7 +92,7 @@ const router = createBrowserRouter([
         path: "updateTask/:id",
         element: <UpdateTask></UpdateTask>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/task/${params.id}`),
+          fetch(`https://quickgig-server.vercel.app/task/${params.id}`),
       },
       {
         path: "purchaseCoin",
@@ -102,7 +102,7 @@ const router = createBrowserRouter([
         path: "payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/paymentCard/${params.id}`),
+          fetch(`https://quickgig-server.vercel.app/paymentCard/${params.id}`),
       },
       {
         path: "paymentHistory",
@@ -117,7 +117,7 @@ const router = createBrowserRouter([
         path: "taskDetails/:id",
         element: <TaskDetails></TaskDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/task/${params.id}`),
+          fetch(`https://quickgig-server.vercel.app/task/${params.id}`),
       },
       {
         path: "allSubmission",

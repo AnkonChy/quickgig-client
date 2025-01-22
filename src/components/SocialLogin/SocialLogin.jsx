@@ -21,13 +21,10 @@ const SocialLogin = () => {
           coin: 10,
         };
         axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
           navigate(location?.state ? location.state : "/");
         });
       });
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
   return (
     <div className=" w-3/4 mx-auto">

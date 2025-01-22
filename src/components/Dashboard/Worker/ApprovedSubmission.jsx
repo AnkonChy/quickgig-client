@@ -18,7 +18,7 @@ const ApprovedSubmission = () => {
       const res = await axiosSecure.get(
         `/approvedSubmissions?email=${user?.email}`
       );
-      console.log(res.data);
+
       return res.data;
     },
   });

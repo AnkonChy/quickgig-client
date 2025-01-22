@@ -16,7 +16,6 @@ const Withdrawals = () => {
     queryKey: [user?.email, "withdrawals"],
     enabled: !!user?.email,
     queryFn: async () => {
-      console.log("User email:", user?.email);
       const res = await axiosSecure.get(`/withdrawal?email=${user?.email}`);
       return res.data;
     },
@@ -47,7 +46,7 @@ const Withdrawals = () => {
       withdraw_date: new Date().toLocaleDateString("en-GB"),
       status: "pending",
     };
-    console.log(data);
+
     //
 
     const withdrawResponse = await axiosSecure.post(

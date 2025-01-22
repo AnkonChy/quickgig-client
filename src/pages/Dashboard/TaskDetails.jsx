@@ -39,7 +39,6 @@ const TaskDetails = () => {
     };
     const submitResponse = await axiosSecure.post("/addSubmit", taskItem);
 
-    console.log(submitResponse);
     if (submitResponse.data.result.insertedId) {
       Swal.fire({
         position: "top-end",

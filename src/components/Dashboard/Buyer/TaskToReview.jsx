@@ -27,8 +27,6 @@ const TaskToReview = () => {
     },
   });
 
-  console.log(taskReviews);
-
   const handleApprove = async (task) => {
     const response = await axiosSecure.patch(`/submission/approve`, {
       submissionId: task._id,

@@ -6,7 +6,6 @@ import useAuth from "../../hooks/useAuth";
 
 const MySubmission = () => {
   const { user } = useAuth();
-  console.log(user);
   const axiosSecure = useAxiosSecure();
 
   const {
@@ -20,7 +19,6 @@ const MySubmission = () => {
       const res = await axiosSecure.get(
         `/allSubmission/worker?email=${user?.email}`
       );
-      console.log(res.data);
       return res.data;
     },
   });

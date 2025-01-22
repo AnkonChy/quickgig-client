@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 
 const axiosPublic = axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "https://quickgig-server.vercel.app",
 });
 
 const useAxiosPublic = () => {

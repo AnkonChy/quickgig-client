@@ -10,7 +10,6 @@ const PurchaseCoin = () => {
     queryKey: ["paymentCard"],
     queryFn: async () => {
       const res = await axiosSecure.get("/payment-card");
-      console.log(res.data);
       return res.data;
     },
   });

@@ -66,7 +66,6 @@ const AddTasks = () => {
         }
       }
     }
-    console.log(res.data);
   };
   return (
     <div className="mb-6">

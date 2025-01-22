@@ -5,7 +5,6 @@ import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const CheckoutForm = ({ dollars }) => {
-  console.log(dollars);
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
@@ -18,7 +17,6 @@ const CheckoutForm = ({ dollars }) => {
     axiosSecure
       .post("/create-payment-intent", { price: dollars })
       .then((res) => {
-        console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
   }, [axiosSecure, dollars]);
@@ -41,10 +39,10 @@ const CheckoutForm = ({ dollars }) => {
     });
 
     if (error) {
-      console.log("payment error", error);
+      // console.log("payment error", error);
       setError(error.message);
     } else {
-      console.log("payment method", paymentMethod);
+      // console.log("payment method", paymentMethod);
       setError("");
     }
 
@@ -61,11 +59,8 @@ const CheckoutForm = ({ dollars }) => {
       });
 
     if (confirmError) {
-      console.log("confirm error");
     } else {
-      console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
 
         //now save the payment history in db
@@ -76,7 +71,6 @@ const CheckoutForm = ({ dollars }) => {
           date: new Date().toLocaleString(),
         };
         const res = await axiosSecure.post("/payments", payment);
-        console.log("payment saved", res);
         if (res.data?.insertedId) {
           Swal.fire({
             position: "top-end",

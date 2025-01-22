@@ -19,7 +19,6 @@ const MyTasks = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure.get(`/tasks/owner?email=${user?.email}`);
-      console.log(res.data);
       return res.data;
     },
   });
@@ -39,7 +38,6 @@ const MyTasks = () => {
         const res = await axiosSecure.delete(`/task/${task._id}`);
         // console.log(res.data);
         if (res.data.deletedCount > 0) {
-          console.log(res.data);
           //refetch to update the ui
           refetch();
           Swal.fire({

@@ -54,7 +54,6 @@ const ManageUsers = () => {
         role: newRole,
       })
       .then((res) => {
-        console.log(res.data);
         if (res.data.modifiedCount) {
           refetch();
           Swal.fire({
