@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import "./Navbar.css";
+import ThemeToggle from "../DarkMode/ThemeToggle";
 const Navbar = () => {
   const { user, handleLogout } = useAuth();
   const axiosSecure = useAxiosSecure();
@@ -31,6 +32,9 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 gap-7 font-semibold md:text-xl items-center">
           {user ? (
             <>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/tasks">All Tasks</NavLink>
+              <NavLink to="/aboutUs">About Us</NavLink>
               <NavLink to="/dashboard">Dashboard</NavLink>
               <NavLink className="flex items-center gap-1">
                 Available Coin
@@ -47,6 +51,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
+              <NavLink to="/">Home</NavLink>
               <NavLink to="/tasks">All Tasks</NavLink>
               <NavLink to="/aboutUs">About Us</NavLink>
             </>
@@ -56,6 +61,7 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <>
+            <ThemeToggle />
             <button
               className="py-2 px-4 md:ml-2 border-2 border-green-800 text-green-800 hover:bg-green-900 hover:text-white rounded font-semibold md:text-xl"
               onClick={handleLogout}
@@ -65,6 +71,7 @@ const Navbar = () => {
           </>
         ) : (
           <>
+            <ThemeToggle/>
             <NavLink to="/login">
               <button className="py-1 px-2 md:py-2 md:px-4 border-2 border-green-800 text-green-800 hover:text-white hover:bg-green-700 rounded font-semibold md:text-xl">
                 Login
@@ -106,8 +113,11 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow right-0 z-10"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow right-0 z-10 space-y-2"
           >
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/tasks">All Tasks</NavLink>
+            <NavLink to="/aboutUs">About Us</NavLink>
             <NavLink to="/dashboard">Dashboard</NavLink>
             <li>Avaiable Coin</li>
             {/* <button

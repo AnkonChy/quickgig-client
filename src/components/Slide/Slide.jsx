@@ -18,6 +18,7 @@ const Slide = ({ image, heading, text }) => {
           <p className="text-base md:text-xl font-semibold text-white lg:text-2xl px-8 md:px-0">
             {text}
           </p>
+         <Link to="/tasks"> <button className="btn my-4">See More</button></Link>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const Tasks = () => {
     },
   });
   return (
-    <div className="pt-20 w-11/12 mx-auto">
+    <div className="pt-32 w-11/12 mx-auto">
       <h1 className=" animate__animated animate__fadeInLeft text-3xl md:text-4xl text-center lg:text-5xl font-bold my-4">
         All Tasks
       </h1>

@@ -19,13 +19,12 @@ const AboutUs = () => {
             platform for exploring movies across all genres. From classics to
             blockbusters, we bring you reviews, recommendations, and everything
             a movie lover needs. Dive into the world of cinema with us! */}
-            Welcome to <span className="font-bold">Plate Share</span>, a
-            compassionate platform dedicated to connecting kind-hearted
-            individuals with those in need. Our mission is to bridge the gap
-            between surplus food and hunger by enabling everyone to share their
-            food with the hungry. At PlateShare, we believe that no meal should
-            go to waste and no person should go to bed hungry. Join us in making
-            a difference, one plate at a time.
+            Welcome to <span className="font-bold">QuickGig</span>, a micro-task
+            and earning platform where users complete small tasks to earn real
+            money. From liking posts to writing reviews, we connect task
+            providers with gig workers for quick and easy earnings. Our mission
+            is to empower users with flexible opportunities to make money
+            anytime, anywhere.
           </p>
           <Link to="/">
             <button className="btn bg-yellow-500 hover:bg-yellow-600 hover:text-white">
