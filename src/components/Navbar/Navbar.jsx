@@ -46,7 +46,10 @@ const Navbar = () => {
               <NavLink to="/profile">User Profile</NavLink>
             </>
           ) : (
-            <NavLink to="/tasks">All Tasks</NavLink>
+            <>
+              <NavLink to="/tasks">All Tasks</NavLink>
+              <NavLink to="/aboutUs">About Us</NavLink>
+            </>
           )}
         </ul>
       </div>
