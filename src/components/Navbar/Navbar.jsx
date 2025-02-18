@@ -18,7 +18,7 @@ const Navbar = () => {
   });
 
   return (
-    <div className="navbar bg-base-100 mx-auto fixed z-10 w-full py-5 px-8">
+    <div className="navbar bg-base-100 mx-auto fixed z-10 w-full py-5 px-6 md:px-10 lg:px-16">
       <div className="navbar-start">
         <NavLink
           to="/"
@@ -46,7 +46,7 @@ const Navbar = () => {
               <NavLink to="/profile">User Profile</NavLink>
             </>
           ) : (
-            ""
+            <NavLink to="/tasks">All Tasks</NavLink>
           )}
         </ul>
       </div>
@@ -75,7 +75,7 @@ const Navbar = () => {
           </>
         )}
 
-        <button
+        {/* <button
           onClick={() =>
             (window.location.href =
               "https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-AnkonChy.git")
@@ -83,7 +83,7 @@ const Navbar = () => {
           className="py-1 px-2 md:py-2 md:ml-2 md:px-4 border-2 border-red-800 hover:bg-red-900 hover:text-white rounded font-semibold text-xs md:text-base lg:text-xl hidden md:inline-block"
         >
           Join as Developer
-        </button>
+        </button> */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -107,7 +107,7 @@ const Navbar = () => {
           >
             <NavLink to="/dashboard">Dashboard</NavLink>
             <li>Avaiable Coin</li>
-            <button
+            {/* <button
               onClick={() =>
                 (window.location.href =
                   "https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-AnkonChy.git")
@@ -115,7 +115,7 @@ const Navbar = () => {
               className="py-1 px-2 md:py-1 md:ml-2 md:px-4 border-2 border-red-800 hover:bg-red-900 hover:text-white rounded font-semibold md:text-xl"
             >
               Join as Developer
-            </button>
+            </button> */}
           </ul>
         </div>
       </div>

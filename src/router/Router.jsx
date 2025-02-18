@@ -22,6 +22,7 @@ import Withdrawals from "../pages/Dashboard/Withdrawals";
 import ManageTasks from "../pages/Dashboard/ManageTasks";
 import UserProfile from "../pages/UserProfile/UserProfile";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import Tasks from "../pages/Tasks/Tasks";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
             <UserProfile></UserProfile>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/tasks",
+        element: <Tasks />,
       },
     ],
   },
