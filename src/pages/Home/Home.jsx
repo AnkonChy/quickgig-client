@@ -6,6 +6,7 @@ import Testimonial from "../../components/Testimonial/Testimonial";
 import FreshOpportunities from "../../components/FreshOpportunities/FreshOpportunities";
 import Blogs from "../Blogs/Blogs";
 import Companies from "../Companies/Companies";
+import HowItWorks from "../../components/HowItWorks/HowItWorks";
 
 const Home = () => {
   const { sortWorkerData, allTasksData } = useLoaderData();
@@ -33,6 +34,7 @@ const Home = () => {
         <Blogs></Blogs>
       </div>
       <Companies></Companies>
+      <HowItWorks />
     </div>
   );
 };

@@ -23,7 +23,11 @@ const BestWorker = ({ data }) => {
         </div>
 
         <div className="card-actions justify-end">
-          <button className="px-2 py-2 rounded-md  bg-blue-900 text-white">Contact</button>
+          <a href="https://meet.google.com/aoc-dwre-jtn" target="_blank">
+            <button className="px-2 py-2 rounded-md  bg-blue-900 text-white">
+              Contact
+            </button>
+          </a>
         </div>
       </div>
     </div>
