@@ -55,7 +55,7 @@ const Tasks = () => {
           onChange={(e) => setSort(e.target.value)}
           value={sort}
         >
-          <option value="">Sort By Amount</option>
+          <option value="">Sort By Price</option>
           <option value="dsc">Descending Order</option>
           <option value="asc">Ascending Order</option>
         </select>

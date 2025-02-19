@@ -1,8 +1,11 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
+import { IoCall } from "react-icons/io5";
+import { FaAddressCard } from "react-icons/fa";
 
 const UserProfile = () => {
   const { user } = useAuth();
+  console.log(user);
   return (
     <div className="pt-28">
       <div className="flex justify-center items-center">
@@ -21,6 +24,16 @@ const UserProfile = () => {
               {user.displayName}
             </h2>
             <p className="text-gray-600">{user.email}</p>
+            <div className="flex items-center gap-10 my-3">
+              <div className="flex items-center justify-between gap-1">
+                <IoCall />
+                <p>+8801*******</p>
+              </div>
+              <div className="flex items-center justify-between gap-1">
+                <FaAddressCard />
+                <p>Dhaka, Bangladesh</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -71,7 +71,7 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <ThemeToggle/>
+            <ThemeToggle />
             <NavLink to="/login">
               <button className="py-1 px-2 md:py-2 md:px-4 border-2 border-green-800 text-green-800 hover:text-white hover:bg-green-700 rounded font-semibold md:text-xl">
                 Login
@@ -119,7 +119,18 @@ const Navbar = () => {
             <NavLink to="/tasks">All Tasks</NavLink>
             <NavLink to="/aboutUs">About Us</NavLink>
             <NavLink to="/dashboard">Dashboard</NavLink>
-            <li>Avaiable Coin</li>
+            <NavLink className="flex items-center gap-1">
+              Available Coin
+              <div className="flex gap-1 items-center">
+                <img
+                  className="w-8"
+                  src="https://img.icons8.com/?size=48&id=LVIob8w9LnNE&format=gif"
+                  alt=""
+                />
+                <h1 className="font-medium">{usersByEmail.coin}</h1>
+              </div>
+            </NavLink>
+            <NavLink to="/profile">User Profile</NavLink>
             {/* <button
               onClick={() =>
                 (window.location.href =
